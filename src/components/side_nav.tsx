@@ -7,11 +7,12 @@ import Link from "next/link";
 import useNavigation from "@/hook/use_navigation";
 
 const SideNav = () => {
-  const { isMissionsActive, isAgentsActive } = useNavigation();
+  const { isMissionsActive, isAgentsActive, isWorkflowStudioActive } = useNavigation();
 
   return (
     <div className="sidenav-style flex-col space-y-4 items-center hidden sm:flex h-full w-[120px] md:w-[225px] md:items-start fixed">
 
+      {/* Workflows page */}
       <Link
         href="/"
         className="nav-links-style flex flex-row duration-200 hover:bg-white/10 relative">
@@ -26,9 +27,10 @@ const SideNav = () => {
         </span>
       </Link>
 
+      {/* Agents page */}
       <Link
         href="/agents"
-        className="agents-link-style nav-links-style flex flex-row duration-200 hover:bg-white/10"
+        className="link-style nav-links-style flex flex-row duration-200 hover:bg-white/10"
       >
         <Icon icon="mdi:people-group" style={{color: '#46fbc5'}} width="35" height="35" />
         <span
@@ -37,6 +39,22 @@ const SideNav = () => {
           }`}
         >
           Agents
+        </span>
+      </Link>
+
+      
+      {/* Workflow Studio Page */}
+      <Link
+        href="/workflow-studio"
+        className="workflow-studio-link links-style nav-links-style flex flex-row duration-200 hover:bg-white/10"
+      >
+        <Icon icon="icon-park-twotone:bydesign" style={{color: '#46fbc5'}} width="35" height="35" />
+        <span
+          className={`text-2xl pt-2 hidden md:flex ${
+            isWorkflowStudioActive ? "font-bold" : ""
+          }`}
+        >
+          Workflow Studio
         </span>
       </Link>
     </div>

@@ -54,8 +54,18 @@ main{
   width: 100%;
 }
 
-.agents-link-style{
+.link-style{
   padding-right: 35px;
+}
+
+svg.iconify.iconify--icon-park-twotone {
+  width: 70px;
+  height: 49px;
+  padding-left: 11px;;
+}
+
+.workflow-studio-link{
+  padding-left: 18px;
 }
 
 .main-style{

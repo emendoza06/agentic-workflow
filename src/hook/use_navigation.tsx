@@ -8,10 +8,12 @@ const useNavigation = () => {
   const pathname = usePathname();
   const [isMissionsActive, setisMissionsActive] = useState(true);
   const [isAgentsActive, setIsAgentsActive] = useState(false);
+  const [isWorkflowStudioActive, setIsWorkflowStudioActive] = useState(false);
 
   useEffect(() => {
     setisMissionsActive(false);
     setIsAgentsActive(false);
+    setIsWorkflowStudioActive(false);
 
     switch (pathname) {
       case "/":
@@ -19,6 +21,9 @@ const useNavigation = () => {
         break;
       case "/agents":
         setIsAgentsActive(true);
+        break;
+      case "/workflow-studio":
+        setIsWorkflowStudioActive(true);
         break;
       default:
         // Handle any other cases here
@@ -29,6 +34,7 @@ const useNavigation = () => {
   return {
     isMissionsActive,
     isAgentsActive,
+    isWorkflowStudioActive
   };
 };
 
