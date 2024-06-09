@@ -26,16 +26,20 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* 
+*********************************************************************
+                    lAYOUT PAGE STYLING + Sidenav
+*********************************************************************
+********************************************************************* */
+
 main{
-  /* height: 100vh;
-  width: 50%; */
-  background-color: red;
+  /* background-color: red; */
 }
 
 .sidenav-style{
-  background-color: purple;
+  padding-top: 150px;
+  background-color: #d2d2d2;
   margin-top: 0;
-  padding-top: 240px;
 }
 
 .nav-links-style{
@@ -54,38 +58,101 @@ main{
   height: 100vh;
 }
 
+/* 
+*********************************************************************
+                    WORKFLOW PAGE STYLING
+*********************************************************************
+********************************************************************* */
+
 .workflow-page-style{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: blue;
   height: 100%;
-  padding-top: 133px;
+  padding-top: 110px;
+}
+
+.workflow-card-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around !important;
 }
 
 .add-card-button{
-  background-color: #EBEBEB !important;
-  max-width: 300px !important;
-  max-height: 200px !important;
-  width: 300px !important;
-  height: 200px !important;
-  margin-right: -5px !important;
+  background-color: #d2d2d2 !important;
+  max-width: 260px !important;
+  max-height: 160px !important;
+  width: 260px !important;
+  height: 160px !important;
+  margin: 0px !important;
 }
 
-.add-new-card-div-style{
-  margin-top: 35px;
-  width: 300px;
-  background-color: purple;
-  height: 200px;
-  border-radius: 20px;
+.plus-icon{
+  margin: 0 auto;
+}
+
+.workflow-card-headers{
+  text-transform: capitalize;
 }
 
 .workflow-card-div{
-  width: 300px;
-  height: 200px;
+  width: 260px;
+  height: 160px;
+  border: none;
 }
 
 .workflow-card{
   height: 100%;
   width: 100%;
+  border: none;
+  background: linear-gradient(0deg, rgba(173,235,209,0.9607492655265231) 0%, rgba(227,227,227,0.9271358201483718) 100%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.workflow-card-description{
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* 
+*********************************************************************
+                    AGENT PAGE STYLING
+*********************************************************************
+********************************************************************* */
+.agent-page-style{
+  display: flex;
+  flex-direction: column;
+  padding-top: 110px;
+}
+
+.row-align{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-around;
+}
+
+.search-bar{
+  width: 65%;
+}
+
+.create-new-text{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.add-agent-button{
+  border-radius: 50px;
+  color: white;
+  background-color: #46FBB4;
+}
+
+.create-new-text{
+  padding-top: 0.5rem;
+}
+
+.agents-container{
+  margin-top: 15px;
 }

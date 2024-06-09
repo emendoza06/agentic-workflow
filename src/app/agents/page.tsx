@@ -9,6 +9,7 @@ import { Icon } from "@iconify/react";
 import { Alert, Button, IconButton } from "@material-tailwind/react";
 import Image from "next/image";
 import { useState } from "react";
+import { Input, Switch, Textarea } from "@material-tailwind/react";
 
 const AgentsPage = () => {
   const [showAgentModal, setShowAgentModal] = useState(false);
@@ -34,29 +35,85 @@ const AgentsPage = () => {
   }
 
   return (
-    <div>
-      <div>
-        <IconButton
-          color="green"
-          placeholder={undefined}
-          className="float-right mr-5"
-          onClick={() => {
-            setShowNewAgentModal(true);
-          }}
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        >
-          <Icon icon="mdi:add-bold" width="30" height="30" />
-        </IconButton>
-        <NewAgentModal
-          showModal={showNewAgentModal}
-          setShowModal={setShowNewAgentModal}
-          onAddNewAgent={() => {
-            refetch();
-          }}
-        />
+    <div className="agent-page-style">
+
+      {/* first row*/}
+      <div className="row-align">
+        {/* Search bar */}
+        <div className="search-bar mb-4">
+            <Input
+                label="Search by role"
+                color="teal"
+                className="text-white"
+                //value={tempAgent?.role}
+                // onChange={(event) => {
+                // setTempAgent((prevState) => ({
+                // ...prevState!,
+                // role: event.target.value,
+                // }));
+                // }}
+                crossOrigin={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+          </div>
+        {/* Create new */}
+        <div className="flex flex-row">
+
+          {/* Create new agent button */}
+          <IconButton
+            color="green"
+            placeholder={undefined}
+            className="float-right mr-5 add-agent-button"
+            onClick={() => {
+              setShowNewAgentModal(true);
+            }}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <Icon icon="mdi:add-bold" width="30" height="30" />
+          </IconButton>
+          {/* This only shows if showModal is true */}
+          <NewAgentModal
+            showModal={showNewAgentModal}
+            setShowModal={setShowNewAgentModal}
+            onAddNewAgent={() => {
+              refetch();
+            }}
+          />
+
+          {/* Create new agent text */}
+          <h4 className="create-new-text">Create new agent</h4>
+        </div>
       </div>
-      <div className="container m-auto flex flex-wrap flex-col md:flex-col items-center justify-start p-2">
+
+      {/* Second row*/}
+      <div className="row-align">
+
+        {/* Sort by Role */}
+        <div className="flex flex-row">
+          <p>Role</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        </div>
+
+        {/* Sort by Goal */}
+        <div className="flex flex-row">
+          <p>Goal</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        </div>
+
+        {/* Sort by Backstory */}
+        <div className="flex flex-row">
+          <p>Backstory</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        </div>
+
+        {/* Sort by Tools */}
+        <div className="flex flex-row">
+          <p>Tools</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        </div>
+      </div>
+
+      {/* Third row */}
+      {/* loop through agents section */}
+      <div className="agents-container container m-auto flex flex-wrap flex-col md:flex-col items-center justify-start p-2">
         {error && (
           <div className="w-full">
             <Alert

@@ -50,29 +50,6 @@ const MissionsPage = () => {
   return (
     <div className="workflow-page-style">
 
-      {/* Add new workflow button */}
-      <div className="add-new-card-div-style">
-        <IconButton
-          color="green"
-          placeholder={undefined}
-          className="float-right mr-5 add-card-button"
-          onClick={() => {
-            setShowNewMissionModal(true);
-          }}
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        >
-          <Icon icon="mdi:add-bold" style={{color: '#A2A2A2'}} width="30" height="30" />
-        </IconButton>
-        <NewMissionModal
-          showModal={showNewMissionModal}
-          setShowModal={setShowNewMissionModal}
-          onAddNewMission={() => {
-            refetch();
-          }}
-        />
-      </div>
-
       {/* If there's no workflows saved display an alert */}
       {data?.missions.length === 0 && (
         <div className="w-full">
@@ -89,18 +66,42 @@ const MissionsPage = () => {
       )}
 
       {/* Container that loops through workflow cards and displays them */}
-      <div className="container max-w-[80%] flex flex-wrap flex-col md:flex-row items-center justify-start p-2">
+      <div className="workflow-card-container container flex flex-wrap flex-col md:flex-row justify-start p-2">
+         {/* Add new workflow button */}
+        <div className="workflow-card-div">
+          <IconButton
+            color="green"
+            placeholder={undefined}
+            className="float-right mr-5 add-card-button"
+            onClick={() => {
+              setShowNewMissionModal(true);
+            }}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          >
+            <Icon className="plus-icon" icon="mdi:add-bold" style={{color: '#A2A2A2'}} width="30" height="30" />
+            <h3 className="workflow-card-headers text-lg font-semibold text-black">Create new</h3>
+          </IconButton>
+          <NewMissionModal
+            showModal={showNewMissionModal}
+            setShowModal={setShowNewMissionModal}
+            onAddNewMission={() => {
+              refetch();
+            }}
+          />
+        </div>
         {data?.missions.map((mission: Mission, i: number) => (
-          <div key={i} className="workflow-card-div p-3">
+          <div key={i} className="workflow-card-div">
             <div
               // className="bg-indigo-600 text-white rounded shadow-xl p-3 cursor-pointer"
-              className="bg-white text-black rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100 transition duration-200"
+              className="workflow-card hover:shadow-lg hover:shadow-green-500/40 bg-white text-black rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100 transition duration-200"
               onClick={() => {
                 setSelectedMission(mission);
                 setShowMissionModal(true);
               }}
             >
-              <h3 className="text-lg font-semibold text-center">{mission.name}</h3>
+              <h3 className="workflow-card-headers text-lg font-semibold">{mission.name}</h3>
+              <h4 className="workflow-card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna</h4>
             </div>
           </div>
         ))}

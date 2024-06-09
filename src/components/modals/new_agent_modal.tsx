@@ -73,9 +73,12 @@ function NewAgentModal(props: {
                 <Icon icon="ep:close-bold" width={20} height={20} />
               </Button>
             </TEModalHeader>
+
+            {/* Input form  */}
             <TEModalBody>
               <div className="sm:flex">
                 <div className="sm:w-1/2 mx-auto">
+                  {/* Role input */}
                   <div className="mb-4">
                     <label className="font-bold text-lg">Role:</label>
                     <Input
@@ -94,6 +97,8 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
+                  {/* Goal input */}
                   <div className="mb-4">
                     <label className="font-bold text-lg">Goal:</label>
                     <Input
@@ -112,6 +117,8 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
+                  {/* Backstory input */}
                   <div className="mb-4">
                     <label className="font-bold text-lg">Backstory:</label>
                     <Textarea
@@ -130,6 +137,8 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
+                  {/* Tools input */}
                   <div className="flex flex-wrap mb-4">
                     <span className="font-bold mr-2 text-lg">Tools:</span>
                     <TESelect
@@ -147,6 +156,8 @@ function NewAgentModal(props: {
                       theme={selectTheme}
                     />
                   </div>
+
+                  {/* Allow delegation input switch */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Allow Delegation: </label>
                     <Switch
@@ -163,6 +174,8 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
+                  {/* Verbose input switch */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Verbose: </label>
                     <Switch
@@ -179,6 +192,8 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
+                  {/* Memory input switch */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Memory: </label>
                     <Switch
@@ -195,10 +210,12 @@ function NewAgentModal(props: {
                       onPointerLeaveCapture={undefined}
                     />
                   </div>
+
                 </div>
               </div>
             </TEModalBody>
 
+          {/* Close and save section */}
             <TEModalFooter>
               <TERipple rippleColor="light">
                 <Button
