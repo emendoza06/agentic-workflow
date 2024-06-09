@@ -1,5 +1,6 @@
 "use client";
 
+import "../globals.css";
 import MissionModal from "@/components/modals/mission_modal";
 import NewMissionModal from "@/components/modals/new_mission_modal";
 import { Mission } from "@/types/mission";
@@ -47,19 +48,21 @@ const MissionsPage = () => {
   }
 
   return (
-    <div>
-      <div>
+    <div className="workflow-page-style">
+
+      {/* Add new workflow button */}
+      <div className="add-new-card-div-style">
         <IconButton
           color="green"
           placeholder={undefined}
-          className="float-right mr-5"
+          className="float-right mr-5 add-card-button"
           onClick={() => {
             setShowNewMissionModal(true);
           }}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          <Icon icon="mdi:add-bold" width="30" height="30" />
+          <Icon icon="mdi:add-bold" style={{color: '#A2A2A2'}} width="30" height="30" />
         </IconButton>
         <NewMissionModal
           showModal={showNewMissionModal}
@@ -69,6 +72,8 @@ const MissionsPage = () => {
           }}
         />
       </div>
+
+      {/* If there's no workflows saved display an alert */}
       {data?.missions.length === 0 && (
         <div className="w-full">
           <Alert
@@ -82,17 +87,20 @@ const MissionsPage = () => {
           </Alert>
         </div>
       )}
-      <div className="container m-auto flex flex-wrap flex-col md:flex-row items-center justify-start p-2">
+
+      {/* Container that loops through workflow cards and displays them */}
+      <div className="container max-w-[80%] flex flex-wrap flex-col md:flex-row items-center justify-start p-2">
         {data?.missions.map((mission: Mission, i: number) => (
-          <div key={i} className=" w-full lg:w-1/2 p-3">
+          <div key={i} className="workflow-card-div p-3">
             <div
-              className="bg-indigo-600 text-white rounded shadow-xl p-3 cursor-pointer"
+              // className="bg-indigo-600 text-white rounded shadow-xl p-3 cursor-pointer"
+              className="bg-white text-black rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100 transition duration-200"
               onClick={() => {
                 setSelectedMission(mission);
                 setShowMissionModal(true);
               }}
             >
-              <h3 className="text-xl text-center">{mission.name}</h3>
+              <h3 className="text-lg font-semibold text-center">{mission.name}</h3>
             </div>
           </div>
         ))}

@@ -1,5 +1,5 @@
-import { HeroSection } from "@/components/ui/hero";
+import MissionsPage from "./missions/page";
 
 export default function Home() {
-  return <HeroSection />;
+  return <MissionsPage />;
 }

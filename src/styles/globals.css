@@ -25,3 +25,67 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+main{
+  /* height: 100vh;
+  width: 50%; */
+  background-color: red;
+}
+
+.sidenav-style{
+  background-color: purple;
+  margin-top: 0;
+  padding-top: 240px;
+}
+
+.nav-links-style{
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.agents-link-style{
+  padding-right: 35px;
+}
+
+.main-style{
+  height: 100vh;
+}
+
+.workflow-page-style{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: blue;
+  height: 100%;
+  padding-top: 133px;
+}
+
+.add-card-button{
+  background-color: #EBEBEB !important;
+  max-width: 300px !important;
+  max-height: 200px !important;
+  width: 300px !important;
+  height: 200px !important;
+  margin-right: -5px !important;
+}
+
+.add-new-card-div-style{
+  margin-top: 35px;
+  width: 300px;
+  background-color: purple;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.workflow-card-div{
+  width: 300px;
+  height: 200px;
+}
+
+.workflow-card{
+  height: 100%;
+  width: 100%;
+}

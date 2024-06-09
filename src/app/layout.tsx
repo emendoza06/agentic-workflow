@@ -26,19 +26,19 @@ export default function RootLayout({
       <body className={inter.className}>
         <ApolloWrapper>
           <TopNav />
-          <MaxWidthWrapper>
+          {/* <MaxWidthWrapper> */}
             <div className="flex">
               <SideNav />
-              <main className="flex-1">
+              <main className="main-style flex-1">
                 <div
                   style={{ marginTop: 35 }}
-                  className="flex flex-col pt-4 sm:ml-[120px] md:ml-[250px] sm:border-r sm:border-zinc-700 pb-20 h-full"
+                  className="pages-style flex flex-col pt-4 sm:ml-[120px] md:ml-[250px] sm:border-r sm:border-zinc-700 pb-20 h-full"
                 >
                   {children}
                 </div>
               </main>
             </div>
-          </MaxWidthWrapper>
+          {/* </MaxWidthWrapper> */}
           <BottomNav />
         </ApolloWrapper>
       </body>

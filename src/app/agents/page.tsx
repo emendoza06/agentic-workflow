@@ -56,7 +56,7 @@ const AgentsPage = () => {
           }}
         />
       </div>
-      <div className="container m-auto flex flex-wrap flex-col md:flex-row items-center justify-start p-2">
+      <div className="container m-auto flex flex-wrap flex-col md:flex-col items-center justify-start p-2">
         {error && (
           <div className="w-full">
             <Alert
@@ -70,6 +70,8 @@ const AgentsPage = () => {
             </Alert>
           </div>
         )}
+
+        {/* If there's no agents yet then show alert */}
         {data?.agents.length === 0 && (
           <div className="w-full">
             <Alert
@@ -83,19 +85,23 @@ const AgentsPage = () => {
             </Alert>
           </div>
         )}
+
+        {/* Loop through agent list and show div */}
         {data?.agents.map((agent: Agent, i: number) => (
-          <div key={i} className="w-full lg:w-1/2 p-3 relative">
-            <div
-              className={`flex flex-col ${
-                i % 2 == 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } rounded overflow-hidden h-auto min-h-52 border`}
-            >
+          <div key={i} className="w-full p-3">
+            <div className={`flex flex-row rounded overflow-hidden h-auto border`}>
               <img
-                className="block max-w-72 w-full lg:w-48 flex-none bg-cover mx-auto"
+                className="block max-w-16 h-14 w-10 flex-none"
                 src={agent.image ?? "/agents_images/sailor.png"}
                 alt="Agent"
               />
-              <div className="rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col leading-normal w-100">
+              <div className="rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-row leading-normal w-100">
+                <div className="text-white font-bold text-lg mb-2 leading-tight">
+                  {agent.role}
+                </div>
+                <div className="text-slate-300 text-ellipsis">
+                  Goal: {agent.goal}
+                </div>
                 <div className="text-white font-bold text-lg mb-2 leading-tight">
                   {agent.role}
                 </div>
@@ -104,7 +110,7 @@ const AgentsPage = () => {
                 </div>
               </div>
               <button
-                className="absolute bottom-0 right-0 bg-blue-500 text-white px-4 py-2 rounded-bl"
+                className="bg-blue-500 text-white px-4 py-2 rounded-bl"
                 style={{ zIndex: 10 }}
                 onClick={() => {
                   setSelectedAgent(agent);
@@ -116,6 +122,8 @@ const AgentsPage = () => {
             </div>
           </div>
         ))}
+
+        {/* When creating a new agent, this is the form that pops up */}
         <AgentModal
           agent={selectedAgent!}
           showModal={showAgentModal}

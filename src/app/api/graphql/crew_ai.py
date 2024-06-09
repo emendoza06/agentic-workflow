@@ -2,7 +2,7 @@ import os
 
 from textwrap import dedent
 from crewai import Agent, Task, Crew, Process
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_community.tools.ddg_search import DuckDuckGoSearchRun
 from langchain_community.tools.semanticscholar.tool import SemanticScholarQueryRun
 from langchain_community.tools.wikidata.tool import WikidataAPIWrapper, WikidataQueryRun
@@ -35,11 +35,11 @@ tool_dict = {
 
 def run_mission(mission):
     try:
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-pro",
-            verbose=True,
+        llm = ChatOpenAI(
+            model="gpt-3.5-turbo",
+            #verbose=True,
             temperature=0.5,
-            google_api_key=os.getenv("GEMINI_API_KEY"),
+            openai_api_key=os.getenv("OPENAI_API_KEY"),
         )
 
         agents = [

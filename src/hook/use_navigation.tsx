@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const useNavigation = () => {
   const pathname = usePathname();
-  const [isMissionsActive, setisMissionsActive] = useState(false);
+  const [isMissionsActive, setisMissionsActive] = useState(true);
   const [isAgentsActive, setIsAgentsActive] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const useNavigation = () => {
     setIsAgentsActive(false);
 
     switch (pathname) {
-      case "/missions":
+      case "/":
         setisMissionsActive(true);
         break;
       case "/agents":
