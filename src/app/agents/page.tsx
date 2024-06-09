@@ -88,26 +88,26 @@ const AgentsPage = () => {
       </div>
 
       {/* Second row*/}
-      <div className="row-align">
+      <div className="sorting row-align">
 
         {/* Sort by Role */}
-        <div className="flex flex-row">
-          <p>Role</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        <div className="sorting-row flex flex-row">
+          <p>Role</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px' }} />
         </div>
 
         {/* Sort by Goal */}
-        <div className="flex flex-row">
-          <p>Goal</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        <div className="sorting-goal flex flex-row">
+          <p>Goal</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
         </div>
 
         {/* Sort by Backstory */}
-        <div className="flex flex-row">
-          <p>Backstory</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        <div className="sorting-backstory flex flex-row">
+          <p>Backstory</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
         </div>
 
         {/* Sort by Tools */}
-        <div className="flex flex-row">
-          <p>Tools</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d'}} />
+        <div className="sorting-tools flex flex-row">
+          <p>Tools</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
         </div>
       </div>
 
@@ -145,27 +145,41 @@ const AgentsPage = () => {
 
         {/* Loop through agent list and show div */}
         {data?.agents.map((agent: Agent, i: number) => (
-          <div key={i} className="w-full p-3">
-            <div className={`flex flex-row rounded overflow-hidden h-auto border`}>
+          
+          // This is the individual agent card
+          <div key={i} className="w-full mb-4">
+            <div className={`agent-card flex flex-row rounded overflow-hidden h-auto border`}>
+              {/* Avatar image */}
               <img
-                className="block max-w-16 h-14 w-10 flex-none"
+                className="agent-card-img block max-w-16 h-14 w-10 flex-none"
                 src={agent.image ?? "/agents_images/sailor.png"}
                 alt="Agent"
               />
-              <div className="rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-row leading-normal w-100">
-                <div className="text-white font-bold text-lg mb-2 leading-tight">
+
+              {/* Agent card content */}
+              <div className="agent-card-content rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-row leading-normal w-100">
+                {/* Role */}
+                <div className="agent-card-content-role text-gray-700 uppercase font-bold mb-2 leading-tight">
                   {agent.role}
                 </div>
-                <div className="text-slate-300 text-ellipsis">
-                  Goal: {agent.goal}
+
+                {/* Goal */}
+                <div className="agent-card-content-goal text-slate-300 text-ellipsis">
+                  {agent.goal}
                 </div>
-                <div className="text-white font-bold text-lg mb-2 leading-tight">
-                  {agent.role}
+
+                {/* Backstory */}
+                <div className="agent-card-content-backstory mb-2 leading-tight">
+                  {agent.backstory}
                 </div>
-                <div className="text-slate-300 text-ellipsis">
-                  Goal: {agent.goal}
+
+                {/* Tools */}
+                <div className="agent-card-content-tools text-slate-300 text-ellipsis">
+                  {agent.tools}
                 </div>
               </div>
+
+              {/* Edit button */}
               <button
                 className="bg-blue-500 text-white px-4 py-2 rounded-bl"
                 style={{ zIndex: 10 }}
@@ -176,6 +190,7 @@ const AgentsPage = () => {
               >
                 <Icon icon="entypo:popup" width="20" height="20" />
               </button>
+
             </div>
           </div>
         ))}

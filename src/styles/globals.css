@@ -16,7 +16,11 @@
   }
 }
 
-body {
+html{
+  background-color: white;
+}
+
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,7 +28,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 /* 
 *********************************************************************
@@ -38,7 +42,7 @@ main{
 
 .sidenav-style{
   padding-top: 150px;
-  background-color: #d2d2d2;
+  background-color: #EBEBEB;
   margin-top: 0;
 }
 
@@ -155,4 +159,99 @@ main{
 
 .agents-container{
   margin-top: 15px;
+}
+
+.sorting{
+  margin-top: 60px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
+  justify-content: space-around;
+  margin-left: 0px;
+  padding-right: 13%;
+}
+
+.sorting-row{
+  position: relative;
+  right: 2%;
+}
+
+.sorting-goal{
+  position: relative;
+  right: 7%;
+}
+
+.sorting-backstory{
+  position: relative;
+  right: 5%;
+}
+
+.sorting-tools{
+  position: relative;
+  right: 2%;
+}
+
+.agent-card{
+  border: 2px solid #2B2B2B;
+  justify-content: space-between;
+  background-color: #F7F7F7;
+}
+
+.agent-card-img{
+  position: relative;
+  right: -1%;
+}
+
+.agent-card-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: left;
+  font-size: 0.8rem;
+  height: 65px;
+
+}
+
+.agent-card-content-role{
+  position: relative;
+  right: 0%;
+  height: 49px;
+  width: 106px;
+  padding-top: 0px;
+  margin-top: -0.8rem;
+  margin-bottom: -12px;
+}
+
+.agent-card-content-goal{
+  position: relative;
+  right: -1%;
+  overflow: hidden;
+  width: 269px;
+  height: 55px;
+  padding-top: 0px;
+  margin-top: -0.8rem;
+  margin-bottom: -12px;
+}
+
+.agent-card-content-backstory{
+  position: relative;
+  right: -1%;
+  overflow: hidden;
+  width: 359px;
+  height: 58px;
+  padding-top: 0px;
+  margin-top: -0.7rem;
+  margin-bottom: -12px;
+}
+
+.agent-card-content-tools{
+  overflow: hidden;
+  position: relative;
+  right: -1%;
+  width: 310px;
+  padding: 0px;
+  height: 55px;
+  margin-top: -0.7rem;
+  margin-bottom: -12px;
 }

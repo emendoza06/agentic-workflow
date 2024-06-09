@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ApolloWrapper>
-          <TopNav />
+          {/* <TopNav /> */}
           {/* <MaxWidthWrapper> */}
             <div className="flex">
               <SideNav />
@@ -39,7 +39,7 @@ export default function RootLayout({
               </main>
             </div>
           {/* </MaxWidthWrapper> */}
-          <BottomNav />
+          {/* <BottomNav /> */}
         </ApolloWrapper>
       </body>
     </html>
