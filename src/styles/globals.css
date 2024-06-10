@@ -201,7 +201,7 @@ svg.iconify.iconify--icon-park-twotone {
   right: 2%;
 }
 
-.agent-card{
+.agent-card-row{
   border: 2px solid #2B2B2B;
   justify-content: space-between;
   background-color: #F7F7F7;
@@ -264,4 +264,88 @@ svg.iconify.iconify--icon-park-twotone {
   height: 55px;
   margin-top: -0.7rem;
   margin-bottom: -12px;
+}
+
+
+
+/* 
+*********************************************************************
+                    WORKFLOW STUDIO PAGE STYLING
+*********************************************************************
+********************************************************************* */
+.workflow-studio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.agent-card-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.agent-card {
+  background-color: white;
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 641px;
+  position: relative;
+}
+
+.remove-agent-card-button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.remove-agent-card-icon {
+  background-color: #d92f2f;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.line {
+  width: 2px;
+  height: 28px;
+  background-color: #00ffcc;
+  position: absolute;
+  left: 50%;
+  bottom: -27px;
+  transform: translateX(-50%);
+}
+
+.add-agent-card-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+.add-agent-card-icon {
+  background-color: #00ffcc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
 }

@@ -148,7 +148,7 @@ const AgentsPage = () => {
           
           // This is the individual agent card
           <div key={i} className="w-full mb-4">
-            <div className={`agent-card flex flex-row rounded overflow-hidden h-auto border`}>
+            <div className={`agent-card-row flex flex-row rounded overflow-hidden h-auto border`}>
               {/* Avatar image */}
               <img
                 className="agent-card-img block max-w-16 h-14 w-10 flex-none"
