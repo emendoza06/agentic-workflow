@@ -11,9 +11,11 @@ For developers:
 
 1. **Installation:** Clone the repository and install dependencies using npm or yarn:
 
-`git clone https://github.com/Eng-Elias/CrewAI-Visualizer.git
-cd CrewAI-Visualizer
-npm install`
+`git clone https://github.com/emendoza06/agentic-workflow.git`
+
+`cd CrewAI-Visualizer`
+
+`npm install`
 
 2. **Create Python Virtual Enviroment:** create Python venv, activate the venv and install the requirements.
 
@@ -37,13 +39,13 @@ Install the requirements:
 
 Just rename .env.template to .env and set your values:
 
-`DATABASE_URL="postgresql://<user>:<password>@localhost:5432/crew_ai_visualizer?schema=public"
+`DATABASE_URL="postgresql://<user>:<password>@localhost:5432/crew_ai_visualizer?schema=public"`
 
-GEMINI_API_KEY=""
+`GEMINI_API_KEY=""`
 
-PYTHON_SITE_PACKAGES="<The  path of site packages folder in the venv you created in the previous step>"
+`PYTHON_SITE_PACKAGES="<The  path of site packages folder in the venv you created in the previous step>"`
 
-CREW_AI_PY_FILE="<the path of my crew_ai.py file in on your system. you can find it in src/app/api/graphql/crew_ai.py>"`
+`CREW_AI_PY_FILE="<the path of my crew_ai.py file in on your system. you can find it in src/app/api/graphql/crew_ai.py>"`
 
 4. **DB Migrations:** Run the following commands to apply database migrations:
 
