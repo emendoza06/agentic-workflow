@@ -69,12 +69,15 @@ function NewMissionModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent style={{ backgroundColor: "#282828" }}>
-            <TEModalHeader>
-              <h1 className="text-xl font-medium leading-normal">
+          <TEModalContent className="create-new-modal" style={{ backgroundColor: "white" }}>
+            
+            {/* Header */}
+            <TEModalHeader className="new-modal-header">
+              <h1 className="create-new-modal-text text-xl font-medium leading-normal">
                 Create New Mission
               </h1>
               <Button
+                className="create-new-modal-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -83,14 +86,18 @@ function NewMissionModal(props: {
                 <Icon icon="ep:close-bold" width={20} height={20} />
               </Button>
             </TEModalHeader>
+
+            {/* Body */}
             <TEModalBody>
               <div>
+
+                {/* Name */}
                 <div className="mb-4">
                   <label className="font-bold text-lg">Name:</label>
                   <Input
                     label="Name"
-                    color="blue"
-                    className="text-white"
+                    color="teal"
+                    className="text-black"
                     value={tempMission?.name}
                     onChange={(event) => {
                       setTempMission((prevState) => ({
@@ -103,6 +110,8 @@ function NewMissionModal(props: {
                     onPointerLeaveCapture={undefined}
                   />
                 </div>
+
+                {/* Crew */}
                 <div className="mb-4">
                   <span className="font-bold mr-2 text-lg">Crew (Agents):</span>
                   <br />
@@ -167,11 +176,13 @@ function NewMissionModal(props: {
                     />
                   )}
                 </div>
+
+                {/* Verbose */}
                 <div className="flex items-center mb-4">
                   <label className="font-bold mx-2">Verbose: </label>
                   <Switch
                     crossOrigin={undefined}
-                    color="blue"
+                    color="teal"
                     defaultChecked={tempMission?.verbose}
                     onChange={(event) => {
                       setTempMission((prevState) => ({
@@ -183,6 +194,8 @@ function NewMissionModal(props: {
                     onPointerLeaveCapture={undefined}
                   />
                 </div>
+
+                {/* Process */}
                 <div className="mb-4">
                   <label className="font-bold text-lg">Process:</label>
                   <TESelect
@@ -221,7 +234,7 @@ function NewMissionModal(props: {
               </TERipple>
               <TERipple rippleColor="light">
                 <Button
-                  color="green"
+                  color="teal"
                   loading={createMissionLoading}
                   disabled={!tempMission.name || createMissionLoading}
                   onClick={() => {

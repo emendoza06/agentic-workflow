@@ -435,26 +435,26 @@ svg.iconify.iconify--icon-park-twotone {
 
 /******************* CREATE NEW AGENT ******************************** */
 
-.create-new-agent-modal{
-  width: 75%;
-  margin-left: 19%;
-  margin-top: 18px;
+.create-new-modal{
+  width: 75% !important;
+  margin-left: 19% !important;
+  margin-top: 18px !important;
 }
 
-.new-agent-modal-header{
-  justify-content: center;
+.new-modal-header{
+  justify-content: center !important;
 }
 
-.create-new-agent-text{
-  font-size: 1.8rem;
-  font-weight: bold;
+.create-new-modal-text{
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
 }
 
-.create-new-agent-exit{
-  position: relative;
-  left: 35%;
-  background-color: #D1D1D1;
-  color: black;
+.create-new-modal-exit{
+  position: relative !important;
+  left: 35% !important;
+  background-color: #D1D1D1 !important;
+  color: black !important;
 }
 
 .recommended-button{
@@ -477,7 +477,8 @@ svg.iconify.iconify--icon-park-twotone {
 /******************* EDIT AGENT ******************************** */
 
 .delete-button{
-  background-color: #d92f2f;
+  background-color: #d92f2f !important;
+  color: white !important;
 }
 
 .edit-agent-modal-content{
@@ -499,4 +500,21 @@ svg.iconify.iconify--icon-park-twotone {
 .edit-agent-current-image{
   width: 120px;
   height: 50px;
+}
+
+/******************* EDIT WORKFLOW ******************************** */
+.workflow-task-name{
+  font-size: 23px !important;
+}
+
+.workflow-result-box{
+  background-color: #d4ece0 !important;
+}
+
+.task-description-workflow{
+  font-size: 16px;
+}
+
+.workflow-expected-output-header{
+  margin-top: 15px;
 }

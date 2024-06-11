@@ -56,7 +56,7 @@ const MissionTaskEditor: React.FC<MissionTaskEditorProps> = ({
             <h3 className="text-md font-semibold">{task.name}</h3>
             <Button
               onClick={() => handleRemoveTask(index)}
-              className="text-red-500"
+              className="delete-button text-white"
               placeholder={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
@@ -64,7 +64,7 @@ const MissionTaskEditor: React.FC<MissionTaskEditorProps> = ({
               Remove
             </Button>
           </div>
-          <div className="text-sm text-gray-300 my-2">{task.description}</div>
+          <div className="text-sm text-green-400 my-2">{task.description}</div>
           <div className="ml-3">
             <strong>Agent: </strong>
             <span className="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold m-1 sm:w-1/2">

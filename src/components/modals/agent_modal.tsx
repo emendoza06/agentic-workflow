@@ -155,13 +155,13 @@ export default function AgentModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent className="create-new-agent-modal" style={{ backgroundColor: "white" }}>
-            <TEModalHeader className="new-agent-modal-header">
-              <h1 className="create-new-agent-text text-xl font-medium leading-normal">
+          <TEModalContent className="create-new-modal" style={{ backgroundColor: "white" }}>
+            <TEModalHeader className="new-modal-header">
+              <h1 className="create-new-modal-text text-xl font-medium leading-normal">
                 {agent?.role}
               </h1>
               <Button
-                className="create-new-agent-exit"
+                className="create-new-modal-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -481,6 +481,7 @@ export default function AgentModal(props: {
             <TEModalFooter>
               {!isEdit && (
                 <>
+                  {/* Delete Button */}
                   <TERipple rippleColor="light">
                     <Button
                       color="red"
@@ -518,9 +519,11 @@ export default function AgentModal(props: {
                       Delete
                     </Button>
                   </TERipple>
+
+                  {/* Edit Button */}
                   <TERipple rippleColor="light">
                     <Button
-                      className="text-black"
+                      className="text-white"
                       color="teal"
                       onClick={() => setEdit(true)}
                       placeholder={undefined}
@@ -532,8 +535,11 @@ export default function AgentModal(props: {
                   </TERipple>
                 </>
               )}
+
+              {/* While editing on footer */}
               {isEdit && (
                 <>
+                  {/* Cancel button */}
                   <TERipple rippleColor="light">
                     <Button
                       color="white"
@@ -545,6 +551,8 @@ export default function AgentModal(props: {
                       Cancel
                     </Button>
                   </TERipple>
+
+                  {/* Save changes button */}
                   <TERipple rippleColor="light">
                     <Button
                       color="teal"

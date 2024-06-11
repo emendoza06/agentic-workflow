@@ -60,13 +60,15 @@ function NewAgentModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent className="create-new-agent-modal" style={{ backgroundColor: "white" }}>
-            <TEModalHeader className="new-agent-modal-header">
-              <h1 className="create-new-agent-text text-xl font-medium leading-normal text-center">
+          <TEModalContent className="create-new-modal" style={{ backgroundColor: "white" }}>
+            
+            {/* Header */}
+            <TEModalHeader className="new-modal-header">
+              <h1 className="create-new-modal-text text-xl font-medium leading-normal text-center">
                 Create New Agent
               </h1>
               <Button
-                className="create-new-agent-exit"
+                className="create-new-modal-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -76,7 +78,7 @@ function NewAgentModal(props: {
               </Button>
             </TEModalHeader>
 
-            {/* Input form  */}
+            {/* Body  */}
             <TEModalBody>
               <div className="sm:flex">
                 <div className="sm:w-1/2 mx-auto">
@@ -236,7 +238,7 @@ function NewAgentModal(props: {
               </TERipple>
               <TERipple rippleColor="light">
                 <Button
-                  color="green"
+                  color="teal"
                   loading={createAgentLoading}
                   disabled={
                     !tempAgent.role || !tempAgent.goal || createAgentLoading

@@ -122,12 +122,15 @@ export default function MissionModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent style={{ backgroundColor: "#282828" }}>
-            <TEModalHeader>
-              <h1 className="text-xl font-medium leading-normal">
+          <TEModalContent className="create-new-modal" style={{ backgroundColor: "white" }}>
+            
+            {/* Header */}
+            <TEModalHeader className="new-modal-header">
+              <h1 className="create-new-modal-text text-xl font-medium leading-normal">
                 {mission?.name}
               </h1>
               <Button
+                className="create-new-modal-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -136,14 +139,20 @@ export default function MissionModal(props: {
                 <Icon icon="ep:close-bold" width={20} height={20} />
               </Button>
             </TEModalHeader>
+
+            {/* Body */}
             <TEModalBody>
               <div>
+
+                {/* if editing name */}
                 {isEdit && (
+
+                  // Name
                   <div className="mb-4">
                     <label className="font-bold text-lg">Name:</label>
                     <Input
                       label="Name"
-                      color="blue"
+                      color="teal"
                       className="text-white"
                       value={tempMission?.name}
                       onChange={(event) => {
@@ -158,6 +167,8 @@ export default function MissionModal(props: {
                     />
                   </div>
                 )}
+
+                {/* Crew */}
                 <div className="mb-4">
                   <span className="font-bold mr-2 text-lg">Crew (Agents):</span>
                   <br />
@@ -179,6 +190,8 @@ export default function MissionModal(props: {
                       </div>
                     </>
                   )}
+
+                  {/* If editing crew */}
                   {isEdit ? (
                     loading ? (
                       <Button
@@ -223,7 +236,9 @@ export default function MissionModal(props: {
                         theme={selectTheme}
                       />
                     )
-                  ) : (
+                  ) : 
+                  // If not editing crew
+                  (
                     mission?.crew.map((agent, i) => (
                       <>
                         <div
@@ -235,13 +250,17 @@ export default function MissionModal(props: {
                       </>
                     ))
                   )}
+
+
                 </div>
+
+                {/* Verbose */}
                 <div className="flex items-center mb-4">
                   <label className="font-bold mx-2">Verbose: </label>
                   {isEdit ? (
                     <Switch
                       crossOrigin={undefined}
-                      color="blue"
+                      color="teal"
                       defaultChecked={tempMission?.verbose}
                       onChange={(event) => {
                         setTempMission((prevState) => ({
@@ -255,7 +274,7 @@ export default function MissionModal(props: {
                   ) : (
                     <Switch
                       crossOrigin={undefined}
-                      color="blue"
+                      color="teal"
                       checked={mission?.verbose}
                       disabled={true}
                       onPointerEnterCapture={undefined}
@@ -263,6 +282,8 @@ export default function MissionModal(props: {
                     />
                   )}
                 </div>
+
+                {/* Process */}
                 <div className="mb-4">
                   <label className="font-bold text-lg">Process:</label>
                   {isEdit ? (
@@ -285,13 +306,17 @@ export default function MissionModal(props: {
                       theme={selectTheme}
                     />
                   ) : (
-                    <span className="bg-blue-300 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold m-1">
+                    <span className="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold m-1">
                       {mission?.process}
                     </span>
                   )}
                 </div>
+
+                {/* Tasks */}
                 <div className="mb-4">
                   <label className="font-bold text-lg">Tasks:</label>
+                  
+                  {/* Mission tasks section */}
                   {isEdit ? (
                     <div>
                       <MissionTaskEditor
@@ -302,7 +327,9 @@ export default function MissionModal(props: {
                         }}
                       />
                     </div>
-                  ) : (
+                  )
+                  // Else not editing tasks section 
+                  : (
                     <div>
                       {mission?.tasks.length > 0 ? (
                         <div>
@@ -316,11 +343,15 @@ export default function MissionModal(props: {
                     </div>
                   )}
                 </div>
+
+                {/* Run button */}
                 {!isEdit && (
                   <>
+
+                  {/* Run/re-run button */}
                     <div className="my-3">
                       <Button
-                        color="blue"
+                        color="teal"
                         disabled={
                           runMissionLoading || mission?.tasks.length === 0
                         }
@@ -359,6 +390,8 @@ export default function MissionModal(props: {
                       >
                         {mission?.result ? "Re-Run" : "Run"}
                       </Button>
+
+                      {/* After run button is pressed */}
                       {runMissionLoading && (
                         <Button
                           variant="text"
@@ -371,11 +404,14 @@ export default function MissionModal(props: {
                           Running
                         </Button>
                       )}
+
                     </div>
+
+                    {/* Result section */}
                     <div>
                       <label className="font-bold text-lg">Result:</label>
                       <div
-                        className="border-2 rounded p-2"
+                        className="workflow-result-box border-2 rounded p-2"
                         style={{ whiteSpace: "pre-line" }}
                       >
                         {missionResult}
@@ -386,14 +422,15 @@ export default function MissionModal(props: {
               </div>
             </TEModalBody>
 
-            {/* Update Mission */}
+            {/* Delete and edit buttons */}
             <TEModalFooter>
               {!isEdit && (
                 <>
+                  {/* Delete Button */}
                   <TERipple rippleColor="light">
                     <Button
                       color="red"
-                      className="mx-1"
+                      className="mx-1 text-black delete-button"
                       loading={deleteMissionLoading}
                       onClick={() => {
                         ReactSwal.fire({
@@ -427,9 +464,12 @@ export default function MissionModal(props: {
                       Delete
                     </Button>
                   </TERipple>
+
+                  {/* Edit Button */}
                   <TERipple rippleColor="light">
                     <Button
-                      color="green"
+                      className="text-white"
+                      color="teal"
                       onClick={() => setEdit(true)}
                       placeholder={undefined}
                       onPointerEnterCapture={undefined}
@@ -440,8 +480,11 @@ export default function MissionModal(props: {
                   </TERipple>
                 </>
               )}
+
+              {/* While editing on footer */}
               {isEdit && (
                 <>
+                  {/* Cancel button */}
                   <TERipple rippleColor="light">
                     <Button
                       color="white"
@@ -453,9 +496,11 @@ export default function MissionModal(props: {
                       Cancel
                     </Button>
                   </TERipple>
+
+                  {/* Save changes button */}
                   <TERipple rippleColor="light">
                     <Button
-                      color="green"
+                      color="teal"
                       loading={updateMissionLoading}
                       disabled={!tempMission.name || updateMissionLoading}
                       onClick={() => {
