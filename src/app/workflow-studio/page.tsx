@@ -3,7 +3,7 @@
 import "../globals.css";
 import { useQuery } from "@apollo/client";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Alert, Button, IconButton } from "@material-tailwind/react";
+import { Alert, Button, IconButton, Switch } from "@material-tailwind/react";
 import { useState } from "react";
 
 import AgentCard from '@/components/workflow-studio-comp/agent_card';
@@ -23,13 +23,52 @@ const WorkflowStudioPage: React.FC = () => {
 
   return (
     <div className="workflow-studio-page">
-      {agentCards.map((agentCard, index) => (
-        <div key={agentCard.id} className="agent-card-container">
-           <AgentCard id={agentCard.id} content={agentCard.content} onRemove={removeAgentCard} />
-          {index !== null && <div className="line"></div>}
+        {/* Workflow section */}
+        <div className="workflow-section">
+            {agentCards.map((agentCard, index) => (
+                <div key={agentCard.id} className="agent-card-container">
+                <AgentCard id={agentCard.id} content={agentCard.content} onRemove={removeAgentCard} />
+                {index !== null && <div className="line"></div>}
+                </div>
+            ))}
+            <AddCardButton onClick={addAgentCard} />
         </div>
-      ))}
-      <AddCardButton onClick={addAgentCard} />
+
+        {/* Output section */}
+        <div className="output-div">
+            <div className="output-div-header">
+                <h3 className="output-header-text">Output</h3>
+            </div>
+            <div className="output-div-radio-button">
+                <p>Radio button here!!!!!</p>
+            </div>
+            <div className="output-div-log-container">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, 
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+                anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
     </div>
   );
 };

@@ -275,14 +275,20 @@ svg.iconify.iconify--icon-park-twotone {
 ********************************************************************* */
 .workflow-studio-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column;
+  align-items: center; */
   padding: 20px;
+}
+
+.workflow-section{
+  width: 641px;
+  margin-left: -20px;
 }
 
 .agent-card-container {
   position: relative;
   margin-bottom: 20px;
+  width: 641px;
 }
 
 .agent-card {
@@ -301,8 +307,8 @@ svg.iconify.iconify--icon-park-twotone {
   border-radius: 5px;
   padding: 5px 10px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 17px;
+  right: 6px;
   cursor: pointer;
 }
 
@@ -334,6 +340,8 @@ svg.iconify.iconify--icon-park-twotone {
   border: none;
   cursor: pointer;
   margin-top: 10px;
+  position: relative;
+  left: 47.5%;
 }
 
 
@@ -348,4 +356,93 @@ svg.iconify.iconify--icon-park-twotone {
   font-size: 20px;
   font-weight: bold;
   color: #333;
+}
+
+.output-div{
+  background-color: white;
+  width: 514px;
+  height: 731px;
+  margin-top: -66px;
+  position: relative;
+  left: 5%;
+  border: 2px solid black;
+}
+
+.output-div-header{
+  height: 95px;
+  background-color: black;
+}
+
+.output-header-text{
+  color: white;
+  font-size: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 11px;
+}
+
+.output-div-radio-button{
+  height: 20px;
+  position: relative;
+  bottom: 4%;
+  color: white;
+  text-align: end;
+}
+
+.output-div-log-container{
+  background-color: white;
+  height: 608px;
+  overflow: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #b4b4b4 #f1f1f1;
+}
+
+
+/* 
+*********************************************************************
+                   MODALS STYLING
+*********************************************************************
+********************************************************************* */
+
+/******************* CREATE NEW AGENT ******************************** */
+
+.create-new-agent-modal{
+  width: 75%;
+  margin-left: 19%;
+  margin-top: 18px;
+}
+
+.new-agent-modal-header{
+  justify-content: center;
+}
+
+.create-new-agent-text{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.create-new-agent-exit{
+  position: relative;
+  left: 35%;
+  background-color: #D1D1D1;
+  color: black;
+}
+
+.recommended-button{
+  background-color: gray;
+  width: 86px;
+  height: 23px;
+  border-radius: 6px;
+}
+
+.checked\:bg-primary:checked {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(68 255 179) !important;
+}
+
+.checked\:border-primary:checked {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(255 255 255) !important;
 }

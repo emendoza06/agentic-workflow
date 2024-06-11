@@ -18,6 +18,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_AGENT } from "@/utils/graphql_queries";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
+import "@/styles/globals.css";
 
 function NewAgentModal(props: {
   showModal: boolean;
@@ -59,12 +60,13 @@ function NewAgentModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent style={{ backgroundColor: "#282828" }}>
-            <TEModalHeader>
-              <h1 className="text-xl font-medium leading-normal">
-                Add new agent to you Crew
+          <TEModalContent className="create-new-agent-modal" style={{ backgroundColor: "white" }}>
+            <TEModalHeader className="new-agent-modal-header">
+              <h1 className="create-new-agent-text text-xl font-medium leading-normal text-center">
+                Create New Agent
               </h1>
               <Button
+                className="create-new-agent-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -83,8 +85,8 @@ function NewAgentModal(props: {
                     <label className="font-bold text-lg">Role:</label>
                     <Input
                       label="Role"
-                      color="blue"
-                      className="text-white"
+                      color="teal"
+                      className="text-black"
                       value={tempAgent?.role}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
@@ -103,8 +105,8 @@ function NewAgentModal(props: {
                     <label className="font-bold text-lg">Goal:</label>
                     <Input
                       label="Goal"
-                      color="blue"
-                      className="text-white"
+                      color="teal"
+                      className="text-black"
                       value={tempAgent?.goal}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
@@ -123,8 +125,8 @@ function NewAgentModal(props: {
                     <label className="font-bold text-lg">Backstory:</label>
                     <Textarea
                       label="Backstory"
-                      color="blue"
-                      className="text-white"
+                      color="teal"
+                      className="text-black"
                       resize={true}
                       value={tempAgent?.backstory || ""}
                       onChange={(event) => {
@@ -141,6 +143,10 @@ function NewAgentModal(props: {
                   {/* Tools input */}
                   <div className="flex flex-wrap mb-4">
                     <span className="font-bold mr-2 text-lg">Tools:</span>
+                    {tempAgent.role && tempAgent.goal && (
+                      <div className="recommended-button"></div>
+                    )}
+                    
                     <TESelect
                       data={tools}
                       multiple
@@ -162,7 +168,7 @@ function NewAgentModal(props: {
                     <label className="font-bold mx-2">Allow Delegation: </label>
                     <Switch
                       crossOrigin={undefined}
-                      color="blue"
+                      color="teal"
                       defaultChecked={tempAgent?.allowDelegation}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
@@ -180,7 +186,7 @@ function NewAgentModal(props: {
                     <label className="font-bold mx-2">Verbose: </label>
                     <Switch
                       crossOrigin={undefined}
-                      color="blue"
+                      color="teal"
                       defaultChecked={tempAgent?.verbose}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
@@ -198,7 +204,7 @@ function NewAgentModal(props: {
                     <label className="font-bold mx-2">Memory: </label>
                     <Switch
                       crossOrigin={undefined}
-                      color="blue"
+                      color="teal"
                       defaultChecked={tempAgent?.verbose}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
