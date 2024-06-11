@@ -155,12 +155,13 @@ export default function AgentModal(props: {
     <div>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="lg">
-          <TEModalContent style={{ backgroundColor: "#282828" }}>
-            <TEModalHeader>
-              <h1 className="text-xl font-medium leading-normal">
+          <TEModalContent className="create-new-agent-modal" style={{ backgroundColor: "white" }}>
+            <TEModalHeader className="new-agent-modal-header">
+              <h1 className="create-new-agent-text text-xl font-medium leading-normal">
                 {agent?.role}
               </h1>
               <Button
+                className="create-new-agent-exit"
                 onClick={() => setShowModal(false)}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
@@ -170,15 +171,21 @@ export default function AgentModal(props: {
               </Button>
             </TEModalHeader>
             <TEModalBody>
-              <div className="sm:flex">
-                <div className="sm:w-1/2">
+              {/* <div className="sm:flex"> */}
+              <div>
+                
+                <div className="edit-agent-modal-content sm:w-1/2">
+                  
+                  {/* If editing role */}
                   {isEdit && (
+
+                    // Role
                     <div className="mb-4">
                       <label className="font-bold text-lg">Role:</label>
                       <Input
                         label="Role"
-                        color="blue"
-                        className="text-white"
+                        color="teal"
+                        className="text-black"
                         value={tempAgent?.role}
                         onChange={(event) => {
                           setTempAgent((prevState) => ({
@@ -192,13 +199,24 @@ export default function AgentModal(props: {
                       />
                     </div>
                   )}
+
+                  {/* If not editing image */}
+                  {!isEdit && (
+                    <img
+                    src={tempAgent?.image ?? "/agents_images/sailor.png"}
+                    alt="Agent Image"
+                    className="edit-agent-current-image w-12 mx-auto rounded-lg"
+                  /> 
+                  )}
+                  
+                  {/* Goal */}
                   <div className="mb-4">
                     <label className="font-bold text-lg">Goal:</label>
                     {isEdit ? (
                       <Input
                         label="Goal"
-                        color="blue"
-                        className="text-white"
+                        color="teal"
+                        className="text-black"
                         value={tempAgent?.goal}
                         onChange={(event) => {
                           setTempAgent((prevState) => ({
@@ -214,13 +232,15 @@ export default function AgentModal(props: {
                       <div>{agent?.goal}</div>
                     )}
                   </div>
+
+                  {/* Backstory */}
                   <div className="mb-4">
                     <label className="font-bold text-lg">Backstory:</label>
                     {isEdit ? (
                       <Textarea
                         label="Backstory"
-                        color="blue"
-                        className="text-white"
+                        color="teal"
+                        className="text-black"
                         resize={true}
                         value={tempAgent?.backstory || ""}
                         onChange={(event) => {
@@ -236,6 +256,8 @@ export default function AgentModal(props: {
                       <div>{agent?.backstory}</div>
                     )}
                   </div>
+
+                  {/* Tools */}
                   <div className="flex flex-wrap mb-4">
                     <span className="font-bold mr-2 text-lg">Tools:</span>
                     {isEdit ? (
@@ -264,12 +286,14 @@ export default function AgentModal(props: {
                       ))
                     )}
                   </div>
+
+                  {/* Allow Delagation */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Allow Delegation: </label>
                     {isEdit ? (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         defaultChecked={tempAgent?.allowDelegation}
                         onChange={(event) => {
                           setTempAgent((prevState) => ({
@@ -283,7 +307,7 @@ export default function AgentModal(props: {
                     ) : (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         checked={agent?.allowDelegation}
                         disabled={true}
                         onPointerEnterCapture={undefined}
@@ -291,12 +315,14 @@ export default function AgentModal(props: {
                       />
                     )}
                   </div>
+
+                  {/* Verbose */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Verbose: </label>
                     {isEdit ? (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         defaultChecked={tempAgent?.verbose}
                         onChange={(event) => {
                           setTempAgent((prevState) => ({
@@ -310,7 +336,7 @@ export default function AgentModal(props: {
                     ) : (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         checked={agent?.verbose}
                         disabled={true}
                         onPointerEnterCapture={undefined}
@@ -318,12 +344,14 @@ export default function AgentModal(props: {
                       />
                     )}
                   </div>
+
+                  {/* Memory */}
                   <div className="flex items-center mb-4">
                     <label className="font-bold mx-2">Memory: </label>
                     {isEdit ? (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         defaultChecked={tempAgent?.memory}
                         onChange={(event) => {
                           setTempAgent((prevState) => ({
@@ -337,7 +365,7 @@ export default function AgentModal(props: {
                     ) : (
                       <Switch
                         crossOrigin={undefined}
-                        color="blue"
+                        color="teal"
                         checked={agent?.memory}
                         disabled={true}
                         onPointerEnterCapture={undefined}
@@ -345,9 +373,67 @@ export default function AgentModal(props: {
                       />
                     )}
                   </div>
+
+                  {/* Image Upload field */}
+                  <div className="edit-agent-upload-image-div">
+                    {isEdit && (
+                      <>
+                      <label className="font-bold mx-2">Agent Image: </label>
+                        <div className="flex flex-row edit-agent-modal-image-field">
+                          <TWFileInput
+                            accept="image/*"
+                            onChange={handleImageChange}
+                          />
+
+                          {/* Upload button */}
+                          <div className="edit-agent-upload-button text-center py-1">
+                            <Button
+                              onClick={() => {
+                                handleUploadImage();
+                              }}
+                              loading={uploadLoading}
+                              disabled={uploadLoading || !selectedImage}
+                              color="teal"
+                              className="mx-auto"
+                              placeholder={undefined}
+                              onPointerEnterCapture={undefined}
+                              onPointerLeaveCapture={undefined}
+                            >
+                              Upload
+                            </Button>
+                          </div>
+
+                          {/* See image that's uploaded
+                          <div className="edit-agent-modal-uploaded-img">
+                          {selectedImage && (
+                            <img
+                              // @ts-ignore
+                              src={selectedImage}
+                              alt="Agent Image"
+                              className="mx-auto my-3 max-w-72 h-auto"
+                            />
+                          )}
+                          </div> */}
+
+                        </div>
+                      {/* See image that's uploaded */}
+                      <div className="edit-agent-modal-uploaded-img">
+                      {selectedImage && (
+                        <img
+                          // @ts-ignore
+                          src={selectedImage}
+                          alt="Agent Image"
+                          className="mx-auto my-3 max-w-72 h-auto"
+                          />
+                      )}
+                      </div>
+                      </>
+                    )}
+                    </div>
                 </div>
 
-                <div className="m-4 sm:w-1/2">
+                {/* Upload/edit agent image */}
+                {/* <div className="m-4 sm:w-1/2">
                   {isEdit ? (
                     <>
                       <label className="font-bold mx-2">Agent Image: </label>
@@ -362,7 +448,7 @@ export default function AgentModal(props: {
                           }}
                           loading={uploadLoading}
                           disabled={uploadLoading || !selectedImage}
-                          color="blue"
+                          color="teal"
                           className="mx-auto"
                           placeholder={undefined}
                           onPointerEnterCapture={undefined}
@@ -387,17 +473,18 @@ export default function AgentModal(props: {
                       className="w-7/12 mx-auto rounded-lg"
                     />
                   )}
-                </div>
+                </div> */}
               </div>
             </TEModalBody>
 
+            {/* Save or delete buttons */}
             <TEModalFooter>
               {!isEdit && (
                 <>
                   <TERipple rippleColor="light">
                     <Button
                       color="red"
-                      className="mx-1"
+                      className="mx-1 text-black delete-button"
                       loading={deleteAgentLoading}
                       onClick={() => {
                         ReactSwal.fire({
@@ -433,7 +520,8 @@ export default function AgentModal(props: {
                   </TERipple>
                   <TERipple rippleColor="light">
                     <Button
-                      color="green"
+                      className="text-black"
+                      color="teal"
                       onClick={() => setEdit(true)}
                       placeholder={undefined}
                       onPointerEnterCapture={undefined}
@@ -459,7 +547,7 @@ export default function AgentModal(props: {
                   </TERipple>
                   <TERipple rippleColor="light">
                     <Button
-                      color="blue"
+                      color="teal"
                       loading={updateAgentLoading}
                       disabled={
                         !tempAgent.role || !tempAgent.goal || updateAgentLoading

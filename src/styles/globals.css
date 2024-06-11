@@ -473,3 +473,30 @@ svg.iconify.iconify--icon-park-twotone {
   --tw-border-opacity: 1 !important;
   border-color: rgb(255 255 255) !important;
 }
+
+/******************* EDIT AGENT ******************************** */
+
+.delete-button{
+  background-color: #d92f2f;
+}
+
+.edit-agent-modal-content{
+  margin: 0 auto;
+}
+
+.edit-agent-modal-image-field{
+  margin-top: 20px;
+}
+
+.edit-agent-upload-button{
+  margin-left: 20px;
+}
+
+.edit-agent-upload-image-div{
+  padding-top: 11px;
+}
+
+.edit-agent-current-image{
+  width: 120px;
+  height: 50px;
+}
