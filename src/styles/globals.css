@@ -81,15 +81,38 @@ svg.iconify.iconify--icon-park-twotone {
 .workflow-page-style{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   height: 100%;
   padding-top: 110px;
+}
+
+.workflows-header-tabs-container {
+  width: 93%;
+  height: 25px;
+  margin-top: -96px;
+  position: relative;
+  left: 20px;
+}
+
+.workflows-header-tabs {
+  width: 153px;
+  height: 28px;
+  background-color: #d6d6d6;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 2px;
+}
+
+.my-workflows-tab{
+  background-color: #89f3bf;
+  font-weight: bold;
 }
 
 .workflow-card-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around !important;
+  margin-top: 66px;
 }
 
 .add-card-button{
@@ -140,6 +163,10 @@ svg.iconify.iconify--icon-park-twotone {
   display: flex;
   flex-direction: column;
   padding-top: 110px;
+}
+
+.agents-tab-container{
+  margin-bottom: 50px;
 }
 
 .row-align{

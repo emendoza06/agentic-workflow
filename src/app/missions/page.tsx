@@ -48,8 +48,13 @@ const MissionsPage = () => {
   }
 
   return (
-    <div className="workflow-page-style">
-
+    <div className="flex flex-col workflow-page-style">
+      {/* Workflows tabs */}
+      <div className="flex flex-row workflows-header-tabs-container">
+        <div className="workflows-header-tabs my-workflows-tab"><p>My Workflows</p></div>
+        <div className="workflows-header-tabs"><p>Templates</p></div>
+      </div>
+      
       {/* If there's no workflows saved display an alert */}
       {data?.missions.length === 0 && (
         <div className="w-full">

@@ -36,6 +36,11 @@ const AgentsPage = () => {
 
   return (
     <div className="agent-page-style">
+      {/* Workflows tabs */}
+      <div className="flex flex-row workflows-header-tabs-container agents-tab-container">
+        <div className="workflows-header-tabs my-workflows-tab"><p>Custom Agents</p></div>
+        <div className="workflows-header-tabs"><p>Agent Library</p></div>
+      </div>
 
       {/* first row*/}
       <div className="row-align">
