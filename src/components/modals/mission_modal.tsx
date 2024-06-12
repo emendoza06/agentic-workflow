@@ -153,7 +153,7 @@ export default function MissionModal(props: {
                     <Input
                       label="Name"
                       color="teal"
-                      className="text-white"
+                      className="text-black"
                       value={tempMission?.name}
                       onChange={(event) => {
                         setTempMission((prevState) => ({
@@ -397,7 +397,7 @@ export default function MissionModal(props: {
                           variant="text"
                           loading={true}
                           placeholder={"Running"}
-                          className="text-white"
+                          className="text-black"
                           onPointerEnterCapture={undefined}
                           onPointerLeaveCapture={undefined}
                         >

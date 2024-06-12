@@ -262,9 +262,9 @@ svg.iconify.iconify--icon-park-twotone {
 
 .agent-card-content-goal{
   position: relative;
-  right: -1%;
+  right: -2%;
   overflow: hidden;
-  width: 269px;
+  width: 218px;
   height: 55px;
   padding-top: 0px;
   margin-top: -0.8rem;
@@ -293,6 +293,10 @@ svg.iconify.iconify--icon-park-twotone {
   margin-bottom: -12px;
 }
 
+.agent-card-edit-icon{
+  background-color: #cdcdcd;
+}
+
 
 
 /* 
@@ -300,6 +304,10 @@ svg.iconify.iconify--icon-park-twotone {
                     WORKFLOW STUDIO PAGE STYLING
 *********************************************************************
 ********************************************************************* */
+.workflow-studio-main{
+  margin-top: -28px !important;
+}
+
 .workflow-studio-page {
   display: flex;
   /* flex-direction: column;
@@ -310,6 +318,38 @@ svg.iconify.iconify--icon-park-twotone {
 .workflow-section{
   width: 641px;
   margin-left: -20px;
+}
+
+.workflow-studio-menu{
+  width: 690px;
+  height: 25px;
+  justify-content: end;
+  margin-bottom: 15px;
+}
+
+.workflow-studio-menu-btn-text{
+  margin-top: 0.2rem;
+}
+
+.process-dropdown{
+  background-color: white;
+  width: 115px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.save-button{
+  background-color: #FFF6D1;
+  width: 62px;
+  height: 33px;
+  margin-right: 10px;
+}
+
+.start-button{
+  background-color: #00ffcc;
+  width: 62px;
+  height: 33px;
+  margin-right: 10px;
 }
 
 .agent-card-container {
@@ -389,7 +429,7 @@ svg.iconify.iconify--icon-park-twotone {
   background-color: white;
   width: 514px;
   height: 731px;
-  margin-top: -66px;
+  margin-top: -80px;
   position: relative;
   left: 5%;
   border: 2px solid black;

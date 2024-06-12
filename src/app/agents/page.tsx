@@ -49,7 +49,7 @@ const AgentsPage = () => {
             <Input
                 label="Search by role"
                 color="teal"
-                className="text-white"
+                className="text-black"
                 //value={tempAgent?.role}
                 // onChange={(event) => {
                 // setTempAgent((prevState) => ({
@@ -186,14 +186,14 @@ const AgentsPage = () => {
 
               {/* Edit button */}
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-bl"
+                className="bg-slate-400 text-black px-4 py-2 rounded-bl agent-card-edit-icon"
                 style={{ zIndex: 10 }}
                 onClick={() => {
                   setSelectedAgent(agent);
                   setShowAgentModal(true);
                 }}
               >
-                <Icon icon="entypo:popup" width="20" height="20" />
+                <Icon icon="akar-icons:edit" width="20" height="20" />
               </button>
 
             </div>

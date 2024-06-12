@@ -22,53 +22,65 @@ const WorkflowStudioPage: React.FC = () => {
   };
 
   return (
-    <div className="workflow-studio-page">
-        {/* Workflow section */}
-        <div className="workflow-section">
-            {agentCards.map((agentCard, index) => (
-                <div key={agentCard.id} className="agent-card-container">
-                <AgentCard id={agentCard.id} content={agentCard.content} onRemove={removeAgentCard} />
-                {index !== null && <div className="line"></div>}
-                </div>
-            ))}
-            <AddCardButton onClick={addAgentCard} />
-        </div>
+    <div className="workflow-studio-main">
+      {/* Workflow section menu buttons */}
+      <div className="workflow-studio-menu flex flex-row text-center font-semibold">
+        <div className="process-dropdown rounded-md"> <p className="workflow-studio-menu-btn-text">Process</p></div>
+        <div className="save-button rounded-md"><p className="workflow-studio-menu-btn-text">Save</p></div>
+        <div className="start-button rounded-md"><p className="workflow-studio-menu-btn-text">Start</p></div>
 
-        {/* Output section */}
-        <div className="output-div">
-            <div className="output-div-header">
-                <h3 className="output-header-text">Output</h3>
-            </div>
-            <div className="output-div-radio-button">
-                <p>Radio button here!!!!!</p>
-            </div>
-            <div className="output-div-log-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, 
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+      </div>
+
+      {/* Workflow studio main content */}
+      <div className="workflow-studio-page">
+
+          {/* Workflow section (col 1) */}
+          <div className="workflow-section">
+              {agentCards.map((agentCard, index) => (
+                  <div key={agentCard.id} className="agent-card-container">
+                  <AgentCard id={agentCard.id} content={agentCard.content} onRemove={removeAgentCard} />
+                  {index !== null && <div className="line"></div>}
+                  </div>
+              ))}
+              <AddCardButton onClick={addAgentCard} />
+          </div>
+
+          {/* Output section (col 2) */}
+          <div className="output-div">
+              <div className="output-div-header">
+                  <h3 className="output-header-text">Output</h3>
+              </div>
+              <div className="output-div-radio-button">
+                  <p>Radio button here!!!!!</p>
+              </div>
+              <div className="output-div-log-container">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                  voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, 
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+                  anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                  voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                  voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                  voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                  non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+          </div>
+      </div>
     </div>
   );
 };
