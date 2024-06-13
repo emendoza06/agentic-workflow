@@ -50,9 +50,9 @@ const MissionsPage = () => {
   return (
     <div className="flex flex-col workflow-page-style">
       {/* Workflows tabs */}
-      <div className="flex flex-row workflows-header-tabs-container">
-        <div className="workflows-header-tabs my-workflows-tab"><p>My Workflows</p></div>
-        <div className="workflows-header-tabs"><p>Templates</p></div>
+      <div className="flex flex-row header-tabs-container">
+        <div className="header-tabs button-shadowing secondary-background-color"><p>My Workflows</p></div>
+        <div className="header-tabs button-shadowing"><p>Templates</p></div>
       </div>
       
       {/* If there's no workflows saved display an alert */}

@@ -25,9 +25,9 @@ const WorkflowStudioPage: React.FC = () => {
     <div className="workflow-studio-main">
       {/* Workflow section menu buttons */}
       <div className="workflow-studio-menu flex flex-row text-center font-semibold">
-        <div className="process-dropdown rounded-md"> <p className="workflow-studio-menu-btn-text">Process</p></div>
-        <div className="save-button rounded-md"><p className="workflow-studio-menu-btn-text">Save</p></div>
-        <div className="start-button rounded-md"><p className="workflow-studio-menu-btn-text">Start</p></div>
+        <div className="process-dropdown rounded-md button-shadowing"> <p className="workflow-studio-menu-btn-text">Process</p></div>
+        <div className="save-button rounded-md button-shadowing"><p className="workflow-studio-menu-btn-text">Save</p></div>
+        <div className="start-button rounded-md button-shadowing"><p className="workflow-studio-menu-btn-text">Start</p></div>
 
       </div>
 

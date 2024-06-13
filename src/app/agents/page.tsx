@@ -14,6 +14,7 @@ import { Input, Switch, Textarea } from "@material-tailwind/react";
 const AgentsPage = () => {
   const [showAgentModal, setShowAgentModal] = useState(false);
   const [showNewAgentModal, setShowNewAgentModal] = useState(false);
+  const[isCustomAgentsTab, setCustomAgentsTab] = useState(true);
 
   const [selectedAgent, setSelectedAgent] = useState<Agent>();
 
@@ -34,15 +35,39 @@ const AgentsPage = () => {
     );
   }
 
+  //Filter agents based on tab = list
+  const filteredAgents = isCustomAgentsTab
+   ? data.agents.filter((agent: Agent) => !agent.isPreMade)
+   : data.agents.filter((agent: Agent) => agent.isPreMade);
+
+
   return (
     <div className="agent-page-style">
-      {/* Workflows tabs */}
-      <div className="flex flex-row workflows-header-tabs-container agents-tab-container">
-        <div className="workflows-header-tabs my-workflows-tab"><p>Custom Agents</p></div>
-        <div className="workflows-header-tabs"><p>Agent Library</p></div>
+      {/* Agents tabs */}
+      <div className="flex flex-row header-tabs-container agents-tab-container">
+        {/* Custom Agents tab */}
+        <button
+          className="custom-agents-tab"
+          style={{ zIndex: 10 }}
+          onClick={() => {
+          setCustomAgentsTab(true);
+          }}
+            >
+          <div className="header-tabs button-shadowing secondary-background-color"><p>Custom Agents</p></div>
+        </button>
+        
+        {/* Agent library tab */}
+        <button
+          style={{ zIndex: 10 }}
+          onClick={() => {
+          setCustomAgentsTab(false);
+          }}
+           >
+          <div className="header-tabs button-shadowing"><p>Agent Library</p></div>
+        </button>
       </div>
 
-      {/* first row*/}
+      {/* first row = search + create*/}
       <div className="row-align">
         {/* Search bar */}
         <div className="search-bar mb-4">
@@ -69,7 +94,7 @@ const AgentsPage = () => {
           <IconButton
             color="green"
             placeholder={undefined}
-            className="float-right mr-5 add-agent-button"
+            className="float-right mr-5 secondary-background-color add-agent-button"
             onClick={() => {
               setShowNewAgentModal(true);
             }}
@@ -92,7 +117,7 @@ const AgentsPage = () => {
         </div>
       </div>
 
-      {/* Second row*/}
+      {/* Second row = Sort*/}
       <div className="sorting row-align">
 
         {/* Sort by Role */}
@@ -148,7 +173,7 @@ const AgentsPage = () => {
         </div>
       </div>
 
-      {/* Third row */}
+      {/* Third row = agents */}
       {/* loop through agents section */}
       <div className="agents-container container m-auto flex flex-wrap flex-col md:flex-col items-center justify-start p-2">
         {error && (
@@ -166,7 +191,8 @@ const AgentsPage = () => {
         )}
 
         {/* If there's no agents yet then show alert */}
-        {data?.agents.length === 0 && (
+        {/* {data?.agents.length === 0 && ( */}
+        {filteredAgents?.length === 0 && (
           <div className="w-full">
             <Alert
               color="cyan"
@@ -181,7 +207,7 @@ const AgentsPage = () => {
         )}
 
         {/* Loop through agent list and show div */}
-        {data?.agents.map((agent: Agent, i: number) => (
+        {filteredAgents?.map((agent: Agent, i: number) => (
           
           // This is the individual agent card
           <div key={i} className="w-full mb-4">

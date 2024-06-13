@@ -7,7 +7,7 @@ interface AddCardButtonProps {
 const AddCardButton: React.FC<AddCardButtonProps> = ({ onClick }) => {
   return (
     <button className="add-agent-card-button" onClick={onClick}>
-      <div className="add-agent-card-icon">+</div>
+      <div className="add-agent-card-icon button-shadowing">+</div>
     </button>
   );
 };

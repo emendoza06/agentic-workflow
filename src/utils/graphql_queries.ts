@@ -17,23 +17,6 @@ export const GET_AGENTS = gql`
   }
 `;
 
-export const GET_PREMADE_AGENTS = gql`
-  query GetPreMadeAgents {
-    preMadeAgents {
-      id
-      role
-      goal
-      backstory
-      tools
-      allowDelegation
-      verbose
-      memory
-      image
-      isPreMade
-    }
-  }
-`;
-
 export const GET_AGENT_BY_ID = gql`
   query GetAgentById($id: Int!) {
     agent(id: $id) {

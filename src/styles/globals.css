@@ -20,33 +20,43 @@ html{
   background-color: white;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
 
-/* 
-*********************************************************************
-                    lAYOUT PAGE STYLING + Sidenav
-*********************************************************************
-********************************************************************* */
-
-main{
-  /* background-color: red; */
+:root {
+  --secondary-bg-color: #89f3bf;
+  --hover-shadow-color: rgb(76 175 80 / 0.2);
+  --hover-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --primary-color: #00ffcc;
+  --highlight-color: #d2d2d2;
+  --text-color-white: white;
+  --border-color: #2B2B2B;
+  --background-color: #F7F7F7;
+  --modal-bg-color: #D1D1D1;
+  --error-bg-color: #d92f2f;
+  --header-bg-color: black;
 }
 
-.sidenav-style{
+.secondary-background-color {
+  background-color: var(--secondary-bg-color) !important;
+}
+
+.button-shadowing:hover {
+  --tw-shadow-color: var(--hover-shadow-color) !important;
+  --tw-shadow: var(--hover-shadow) !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+}
+
+.text-color-white {
+  color: var(--text-color-white);
+}
+
+/* Layout and Sidenav */
+.sidenav-style {
   padding-top: 150px;
   background-color: #EBEBEB;
   margin-top: 0;
 }
 
-.nav-links-style{
+.nav-links-style {
   border-radius: 15px;
   display: flex;
   flex-direction: row;
@@ -54,39 +64,33 @@ main{
   width: 100%;
 }
 
-.link-style{
+.link-style {
   padding-right: 35px;
 }
 
 svg.iconify.iconify--icon-park-twotone {
   width: 70px;
   height: 49px;
-  padding-left: 11px;;
+  padding-left: 11px;
 }
 
-.workflow-studio-link{
+.workflow-studio-link {
   padding-left: 18px;
 }
 
-.main-style{
+.main-style {
   height: 100vh;
 }
 
-/* 
-*********************************************************************
-                    WORKFLOW PAGE STYLING
-*********************************************************************
-********************************************************************* */
-
-.workflow-page-style{
+/* Workflow Page */
+.workflow-page-style {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
   height: 100%;
   padding-top: 110px;
 }
 
-.workflows-header-tabs-container {
+.header-tabs-container {
   width: 93%;
   height: 25px;
   margin-top: -96px;
@@ -94,29 +98,29 @@ svg.iconify.iconify--icon-park-twotone {
   left: 20px;
 }
 
-.workflows-header-tabs {
+.header-tabs {
   width: 153px;
   height: 28px;
   background-color: #d6d6d6;
   text-align: center;
   border-radius: 5px;
   margin-right: 2px;
-}
-
-.my-workflows-tab{
-  background-color: #89f3bf;
   font-weight: bold;
 }
 
-.workflow-card-container{
+.default-tab {
+  font-weight: bold;
+}
+
+.workflow-card-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around !important;
   margin-top: 66px;
 }
 
-.add-card-button{
-  background-color: #d2d2d2 !important;
+.add-card-button {
+  background-color: var(--highlight-color) !important;
   max-width: 260px !important;
   max-height: 160px !important;
   width: 260px !important;
@@ -124,81 +128,69 @@ svg.iconify.iconify--icon-park-twotone {
   margin: 0px !important;
 }
 
-.plus-icon{
+.plus-icon {
   margin: 0 auto;
 }
 
-.workflow-card-headers{
+.workflow-card-headers {
   text-transform: capitalize;
 }
 
-.workflow-card-div{
+.workflow-card-div,
+.workflow-card {
   width: 260px;
   height: 160px;
   border: none;
 }
 
-.workflow-card{
-  height: 100%;
-  width: 100%;
-  border: none;
-  background: linear-gradient(0deg, rgba(173,235,209,0.9607492655265231) 0%, rgba(227,227,227,0.9271358201483718) 100%);
+.workflow-card {
+  background: linear-gradient(0deg, rgba(173, 235, 209, 0.96) 0%, rgba(227, 227, 227, 0.93) 100%);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.workflow-card-description{
+.workflow-card-description {
   font-size: 0.9rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
-/* 
-*********************************************************************
-                    AGENT PAGE STYLING
-*********************************************************************
-********************************************************************* */
-.agent-page-style{
+/* Agent Page */
+.agent-page-style {
   display: flex;
   flex-direction: column;
   padding-top: 110px;
 }
 
-.agents-tab-container{
+.agents-tab-container {
   margin-bottom: 50px;
 }
 
-.row-align{
+.row-align {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: space-around;
 }
 
-.search-bar{
+.search-bar {
   width: 65%;
 }
 
-.create-new-text{
+.create-new-text {
   font-size: 20px;
   font-weight: bold;
-}
-
-.add-agent-button{
-  border-radius: 50px;
-  color: white;
-  background-color: #46FBB4;
-}
-
-.create-new-text{
   padding-top: 0.5rem;
 }
 
-.agents-container{
+.add-agent-button {
+  border-radius: 50px;
+}
+
+.agents-container {
   margin-top: 15px;
 }
 
-.sorting{
+.sorting {
   margin-top: 60px;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -208,38 +200,41 @@ svg.iconify.iconify--icon-park-twotone {
   padding-right: 13%;
 }
 
-.sorting-row{
+.sorting-row,
+.sorting-goal,
+.sorting-backstory,
+.sorting-tools {
   position: relative;
+}
+
+.sorting-row {
   right: 2%;
 }
 
-.sorting-goal{
-  position: relative;
+.sorting-goal {
   right: 7%;
 }
 
-.sorting-backstory{
-  position: relative;
+.sorting-backstory {
   right: 8%;
 }
 
-.sorting-tools{
-  position: relative;
+.sorting-tools {
   right: 2%;
 }
 
-.agent-card-row{
-  border: 2px solid #2B2B2B;
+.agent-card-row {
+  border: 2px solid var(--border-color);
   justify-content: space-between;
-  background-color: #F7F7F7;
+  background-color: var(--background-color);
 }
 
-.agent-card-img{
+.agent-card-img {
   position: relative;
   right: -1%;
 }
 
-.agent-card-content{
+.agent-card-content {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -247,106 +242,89 @@ svg.iconify.iconify--icon-park-twotone {
   text-align: left;
   font-size: 0.8rem;
   height: 65px;
-
 }
 
-.agent-card-content-role{
+.agent-card-content-role,
+.agent-card-content-goal,
+.agent-card-content-backstory,
+.agent-card-content-tools {
   position: relative;
+  overflow: hidden;
+  padding-top: 0px;
+  margin-top: -0.8rem;
+  margin-bottom: -12px;
+}
+
+.agent-card-content-role {
   right: 0%;
   height: 49px;
   width: 106px;
-  padding-top: 0px;
-  margin-top: -0.8rem;
-  margin-bottom: -12px;
 }
 
-.agent-card-content-goal{
-  position: relative;
+.agent-card-content-goal {
   right: -2%;
-  overflow: hidden;
   width: 218px;
   height: 55px;
-  padding-top: 0px;
-  margin-top: -0.8rem;
-  margin-bottom: -12px;
 }
 
-.agent-card-content-backstory{
-  position: relative;
+.agent-card-content-backstory {
   right: -1%;
-  overflow: hidden;
   width: 359px;
   height: 58px;
-  padding-top: 0px;
-  margin-top: -0.7rem;
-  margin-bottom: -12px;
 }
 
-.agent-card-content-tools{
-  overflow: hidden;
-  position: relative;
+.agent-card-content-tools {
   right: -1%;
   width: 310px;
-  padding: 0px;
   height: 55px;
-  margin-top: -0.7rem;
-  margin-bottom: -12px;
 }
 
-.agent-card-edit-icon{
+.agent-card-edit-icon {
   background-color: #cdcdcd;
 }
 
-
-
-/* 
-*********************************************************************
-                    WORKFLOW STUDIO PAGE STYLING
-*********************************************************************
-********************************************************************* */
-.workflow-studio-main{
+/* Workflow Studio Page */
+.workflow-studio-main {
   margin-top: -28px !important;
 }
 
 .workflow-studio-page {
   display: flex;
-  /* flex-direction: column;
-  align-items: center; */
   padding: 20px;
 }
 
-.workflow-section{
+.workflow-section {
   width: 641px;
   margin-left: -20px;
 }
 
-.workflow-studio-menu{
+.workflow-studio-menu {
   width: 690px;
   height: 25px;
   justify-content: end;
   margin-bottom: 15px;
 }
 
-.workflow-studio-menu-btn-text{
+.workflow-studio-menu-btn-text {
   margin-top: 0.2rem;
 }
 
-.process-dropdown{
+.process-dropdown {
   background-color: white;
   width: 115px;
   height: 40px;
   margin-right: 10px;
 }
 
-.save-button{
+.save-button {
   background-color: #FFF6D1;
   width: 62px;
   height: 33px;
   margin-right: 10px;
 }
 
-.start-button{
-  background-color: #00ffcc;
+.start-button {
+  background-color: var(--primary-color);
   width: 62px;
   height: 33px;
   margin-right: 10px;
@@ -360,12 +338,11 @@ svg.iconify.iconify--icon-park-twotone {
 
 .agent-card {
   background-color: white;
-  border: 2px solid #00ffcc;
+  border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   width: 641px;
-  position: relative;
 }
 
 .remove-agent-card-button {
@@ -380,7 +357,7 @@ svg.iconify.iconify--icon-park-twotone {
 }
 
 .remove-agent-card-icon {
-  background-color: #d92f2f;
+  background-color: var(--error-bg-color);
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -395,7 +372,7 @@ svg.iconify.iconify--icon-park-twotone {
 .line {
   width: 2px;
   height: 28px;
-  background-color: #00ffcc;
+  background-color: var(--primary-color);
   position: absolute;
   left: 50%;
   bottom: -27px;
@@ -411,9 +388,8 @@ svg.iconify.iconify--icon-park-twotone {
   left: 47.5%;
 }
 
-
 .add-agent-card-icon {
-  background-color: #00ffcc;
+  background-color: var(--primary-color);
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -425,7 +401,7 @@ svg.iconify.iconify--icon-park-twotone {
   color: #333;
 }
 
-.output-div{
+.output-div {
   background-color: white;
   width: 514px;
   height: 731px;
@@ -435,28 +411,28 @@ svg.iconify.iconify--icon-park-twotone {
   border: 2px solid black;
 }
 
-.output-div-header{
+.output-div-header {
   height: 95px;
-  background-color: black;
+  background-color: var(--header-bg-color);
 }
 
-.output-header-text{
-  color: white;
+.output-header-text {
+  color: var(--text-color-white);
   font-size: 32px;
   text-transform: uppercase;
   text-align: center;
   padding-top: 11px;
 }
 
-.output-div-radio-button{
+.output-div-radio-button {
   height: 20px;
   position: relative;
   bottom: 4%;
-  color: white;
+  color: var(--text-color-white);
   text-align: end;
 }
 
-.output-div-log-container{
+.output-div-log-container {
   background-color: white;
   height: 608px;
   overflow: auto;
@@ -466,38 +442,30 @@ svg.iconify.iconify--icon-park-twotone {
   scrollbar-color: #b4b4b4 #f1f1f1;
 }
 
-
-/* 
-*********************************************************************
-                   MODALS STYLING
-*********************************************************************
-********************************************************************* */
-
-/******************* CREATE NEW AGENT ******************************** */
-
-.create-new-modal{
+/* Modals */
+.create-new-modal {
   width: 75% !important;
   margin-left: 19% !important;
   margin-top: 18px !important;
 }
 
-.new-modal-header{
+.new-modal-header {
   justify-content: center !important;
 }
 
-.create-new-modal-text{
+.create-new-modal-text {
   font-size: 1.8rem !important;
   font-weight: bold !important;
 }
 
-.create-new-modal-exit{
+.create-new-modal-exit {
   position: relative !important;
   left: 35% !important;
-  background-color: #D1D1D1 !important;
+  background-color: var(--modal-bg-color) !important;
   color: black !important;
 }
 
-.recommended-button{
+.recommended-button {
   background-color: gray;
   width: 86px;
   height: 23px;
@@ -514,47 +482,44 @@ svg.iconify.iconify--icon-park-twotone {
   border-color: rgb(255 255 255) !important;
 }
 
-/******************* EDIT AGENT ******************************** */
-
-.delete-button{
-  background-color: #d92f2f !important;
+.delete-button {
+  background-color: var(--error-bg-color) !important;
   color: white !important;
 }
 
-.edit-agent-modal-content{
+.edit-agent-modal-content {
   margin: 0 auto;
 }
 
-.edit-agent-modal-image-field{
+.edit-agent-modal-image-field {
   margin-top: 20px;
 }
 
-.edit-agent-upload-button{
+.edit-agent-upload-button {
   margin-left: 20px;
 }
 
-.edit-agent-upload-image-div{
+.edit-agent-upload-image-div {
   padding-top: 11px;
 }
 
-.edit-agent-current-image{
+.edit-agent-current-image {
   width: 120px;
   height: 50px;
 }
 
-/******************* EDIT WORKFLOW ******************************** */
-.workflow-task-name{
+.workflow-task-name {
   font-size: 23px !important;
 }
 
-.workflow-result-box{
+.workflow-result-box {
   background-color: #d4ece0 !important;
 }
 
-.task-description-workflow{
+.task-description-workflow {
   font-size: 16px;
 }
 
-.workflow-expected-output-header{
+.workflow-expected-output-header {
   margin-top: 15px;
 }
