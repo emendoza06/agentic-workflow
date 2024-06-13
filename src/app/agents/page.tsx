@@ -53,7 +53,7 @@ const AgentsPage = () => {
           setCustomAgentsTab(true);
           }}
             >
-          <div className="header-tabs button-shadowing secondary-background-color"><p>Custom Agents</p></div>
+          <div className={`header-tabs button-shadowing ${isCustomAgentsTab ? "secondary-background-color" : ""}`}><p>Custom Agents</p></div>
         </button>
         
         {/* Agent library tab */}
@@ -63,7 +63,7 @@ const AgentsPage = () => {
           setCustomAgentsTab(false);
           }}
            >
-          <div className="header-tabs button-shadowing"><p>Agent Library</p></div>
+          <div className={`header-tabs button-shadowing ${isCustomAgentsTab ? "" : "secondary-background-color"}`}><p>Agent Library</p></div>
         </button>
       </div>
 
