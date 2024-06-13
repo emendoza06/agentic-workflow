@@ -97,22 +97,54 @@ const AgentsPage = () => {
 
         {/* Sort by Role */}
         <div className="sorting-row flex flex-row">
-          <p>Role</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px' }} />
+          <button
+                    style={{ zIndex: 10 }}
+                    onClick={() => {
+                      // setSelectedAgent(agent);
+                      // setShowAgentModal(true);
+                    }}
+              >
+          <p>Role<Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px', position: 'relative', bottom: '20px', left: '27px' }} /></p>
+          </button>
         </div>
 
         {/* Sort by Goal */}
         <div className="sorting-goal flex flex-row">
-          <p>Goal</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
+          <button
+                    style={{ zIndex: 10 }}
+                    onClick={() => {
+                      // setSelectedAgent(agent);
+                      // setShowAgentModal(true);
+                    }}
+              >
+          <p>Goal<Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px', position: 'relative', bottom: '20px', left: '30px'}} /></p>
+          </button>
         </div>
 
         {/* Sort by Backstory */}
         <div className="sorting-backstory flex flex-row">
-          <p>Backstory</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
+          <button
+                    style={{ zIndex: 10 }}
+                    onClick={() => {
+                      // setSelectedAgent(agent);
+                      // setShowAgentModal(true);
+                    }}
+                >
+          <p>Backstory<Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px', position: 'relative', bottom: '20px', left: '65px'}} /></p>
+          </button>
         </div>
 
         {/* Sort by Tools */}
         <div className="sorting-tools flex flex-row">
-          <p>Tools</p><Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px'}} />
+          <button
+                  style={{ zIndex: 10 }}
+                  onClick={() => {
+                    // setSelectedAgent(agent);
+                    // setShowAgentModal(true);
+                  }}
+                >
+          <p>Tools <Icon icon="entypo:select-arrows"  style={{color: '#3d3d3d',  width: '22px', height: '22px', position: 'relative', bottom: '20px', left: '35px'}} /></p>
+          </button>
         </div>
       </div>
 
