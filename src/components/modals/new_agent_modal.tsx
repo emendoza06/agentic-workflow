@@ -38,6 +38,7 @@ function NewAgentModal(props: {
     tools: [],
     allowDelegation: false,
     verbose: false,
+    isPreMade: false
   });
 
   const [createAgent] = useMutation(CREATE_AGENT);
@@ -124,7 +125,26 @@ function NewAgentModal(props: {
 
                   {/* Backstory input */}
                   <div className="mb-4">
-                    <label className="font-bold text-lg">Backstory:</label>
+                    <div className="mb-2 flex flex-row">
+                      <label className="font-bold text-lg">Backstory:</label>
+                    
+                      {/* if role and goal are filled, then recommend button appears */}
+                      {tempAgent.role && tempAgent.goal && (
+                        <button
+                          className="recommend-button"
+                          style={{ zIndex: 10 }}
+                          onClick={() => {
+                  
+                          }}
+                          >
+                          <div className="justify-center flex flex-row">
+                            <Icon className="backstory-icon" icon="ph:sparkle-fill" style={{color: '#46fbc5'}} width="15" height="15"/>
+                            <p>Recommend</p>
+                          </div>
+                        </button>
+                      )}
+                    </div>
+                    
                     <Textarea
                       label="Backstory"
                       color="teal"
@@ -144,10 +164,25 @@ function NewAgentModal(props: {
 
                   {/* Tools input */}
                   <div className="flex flex-wrap mb-4">
-                    <span className="font-bold mr-2 text-lg">Tools:</span>
-                    {tempAgent.role && tempAgent.goal && (
-                      <div className="recommended-button"></div>
-                    )}
+                    <div className="mb-2 flex flex-row">
+                      <span className="font-bold mr-2 text-lg">Tools:</span>
+                      
+                      {/* if role and goal are filled, then recommend button appears */}
+                      {tempAgent.role && tempAgent.goal && (
+                        <button
+                        className="recommend-button"
+                        style={{ zIndex: 10 }}
+                        onClick={() => {
+                
+                        }}
+                        >
+                          <div className="justify-center flex flex-row">
+                            <Icon className="backstory-icon" icon="ph:sparkle-fill" style={{color: '#46fbc5'}} width="15" height="15"/>
+                            <p>Recommend</p>
+                          </div>
+                        </button>
+                      )}
+                    </div>
                     
                     <TESelect
                       data={tools}

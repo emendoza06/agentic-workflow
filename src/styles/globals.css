@@ -469,11 +469,18 @@ svg.iconify.iconify--icon-park-twotone {
   color: black !important;
 }
 
-.recommended-button {
-  background-color: gray;
-  width: 86px;
-  height: 23px;
+.recommend-button {
+  background-color: black;
+  width: 113px;
+  height: 28px;
   border-radius: 6px;
+  color: #46FBB4;
+  font-size: 0.9rem;
+  margin-left: 0.4rem;
+}
+
+.backstory-icon{
+  margin-top: 0.2rem !important;
 }
 
 .checked\:bg-primary:checked {
