@@ -5,7 +5,18 @@ import { runMission } from "./crew_ai";
 const resolvers = {
   Query: {
     agents: () => {
-      return prisma.agent.findMany();
+      return prisma.agent.findMany({
+        where:{
+          isPreMade: false
+        }
+      });
+    },
+    preMadeAgents: () => {
+      return prisma.agent.findMany({
+        where: {
+          isPreMade: true
+        }
+      });
     },
     agent: (id) => {
       return prisma.agent.findFirst({

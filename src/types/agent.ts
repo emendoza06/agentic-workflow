@@ -18,4 +18,5 @@ export type Agent = {
   verbose: boolean;
   memory?: boolean;
   image?: string | null;
+  isPreMade: boolean;
 };

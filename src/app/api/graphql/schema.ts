@@ -20,6 +20,7 @@ const typeDefs = `#graphql
         verbose: Boolean!
         memory: Boolean
         image: String
+        isPreMade: Boolean!
         missions: [Mission!]
     }
 
@@ -68,6 +69,7 @@ const typeDefs = `#graphql
 
     type Query {
         agents(filter: String): [Agent!]!
+        preMadeAgents(filter: String): [Agent!]!
         agent(id: Int!): Agent
         missions(filter: String): [Mission!]!
         mission(id: Int!): Mission
