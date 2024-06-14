@@ -69,7 +69,8 @@ const AgentsPage = () => {
       </div>
 
       {/* first row = search + create*/}
-      <div className="row-align">
+      <div className={`row-align ${!isCustomAgentsTab ? "agent-library-search-bar" : "" }`}>
+        
         {/* Search bar */}
         <div className="search-bar mb-4">
             <Input
@@ -88,34 +89,38 @@ const AgentsPage = () => {
                 onPointerLeaveCapture={undefined}
               />
           </div>
+
         {/* Create new */}
-        <div className="flex flex-row">
+        {isCustomAgentsTab && (
+            <div className="flex flex-row">
 
-          {/* Create new agent button */}
-          <IconButton
-            color="green"
-            placeholder={undefined}
-            className="float-right mr-5 secondary-background-color add-agent-button"
-            onClick={() => {
-              setShowNewAgentModal(true);
-            }}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
-          >
-            <Icon icon="mdi:add-bold" width="30" height="30" />
-          </IconButton>
-          {/* This only shows if showModal is true */}
-          <NewAgentModal
-            showModal={showNewAgentModal}
-            setShowModal={setShowNewAgentModal}
-            onAddNewAgent={() => {
-              refetch();
-            }}
-          />
-
-          {/* Create new agent text */}
-          <h4 className="create-new-text">Create new agent</h4>
-        </div>
+            {/* Create new agent button */}
+            <IconButton
+              color="green"
+              placeholder={undefined}
+              className="float-right mr-5 secondary-background-color add-agent-button"
+              onClick={() => {
+                setShowNewAgentModal(true);
+              }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              <Icon icon="mdi:add-bold" width="30" height="30" />
+            </IconButton>
+            {/* This only shows if showModal is true */}
+            <NewAgentModal
+              showModal={showNewAgentModal}
+              setShowModal={setShowNewAgentModal}
+              onAddNewAgent={() => {
+                refetch();
+              }}
+            />
+  
+            {/* Create new agent text */}
+            <h4 className="create-new-text">Create new agent</h4>
+          </div>
+        )}
+        
       </div>
 
       {/* Second row = Sort*/}
@@ -252,7 +257,7 @@ const AgentsPage = () => {
                   setShowAgentModal(true);
                 }}
               >
-                <Icon icon="akar-icons:edit" width="20" height="20" />
+                <Icon icon={`${isCustomAgentsTab? "akar-icons:edit" : "eva:expand-outline"}`} width="20" height="20" />
               </button>
 
             </div>
@@ -263,6 +268,7 @@ const AgentsPage = () => {
         <AgentModal
           agent={selectedAgent!}
           showModal={showAgentModal}
+          isCustomAgentsTab={isCustomAgentsTab!}
           setShowModal={setShowAgentModal}
           onUpdateAgent={() => {
             refetch();

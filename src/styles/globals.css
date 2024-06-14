@@ -180,6 +180,11 @@ svg.iconify.iconify--icon-park-twotone {
   width: 65%;
 }
 
+.agent-library-search-bar{
+  justify-content: start !important;
+  margin-left: 48px;
+}
+
 .create-new-text {
   font-size: 20px;
   font-weight: bold;

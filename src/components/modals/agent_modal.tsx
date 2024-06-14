@@ -26,6 +26,7 @@ import Image from "next/image";
 export default function AgentModal(props: {
   agent: Agent;
   showModal: boolean;
+  isCustomAgentsTab: boolean;
   setShowModal: Function;
   onUpdateAgent?: Function;
   onUploadImage?: Function;
@@ -34,6 +35,7 @@ export default function AgentModal(props: {
   const {
     agent,
     showModal,
+    isCustomAgentsTab,
     setShowModal,
     onUpdateAgent = () => {},
     onUploadImage = () => {},
@@ -478,7 +480,8 @@ export default function AgentModal(props: {
             </TEModalBody>
 
             {/* Save or delete buttons */}
-            <TEModalFooter>
+            {isCustomAgentsTab && (
+              <TEModalFooter>
               {!isEdit && (
                 <>
                   {/* Delete Button */}
@@ -590,7 +593,9 @@ export default function AgentModal(props: {
                   </TERipple>
                 </>
               )}
-            </TEModalFooter>
+              </TEModalFooter>
+            )}
+            
           </TEModalContent>
         </TEModalDialog>
       </TEModal>
