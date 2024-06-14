@@ -36,9 +36,10 @@ const AgentsPage = () => {
   }
 
   //Filter agents based on tab = list
-  const filteredAgents = isCustomAgentsTab
+  const filteredAgents = data ? isCustomAgentsTab
    ? data.agents.filter((agent: Agent) => !agent.isPreMade)
-   : data.agents.filter((agent: Agent) => agent.isPreMade);
+   : data.agents.filter((agent: Agent) => agent.isPreMade)
+  : [];
 
 
   return (

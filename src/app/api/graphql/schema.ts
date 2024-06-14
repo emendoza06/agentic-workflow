@@ -62,6 +62,12 @@ const typeDefs = `#graphql
         message: String
     }
 
+    type BackstoryResponse {
+        backstory: String
+        error: Boolean
+        message: String
+    }
+
     enum MissionProcess {
         SEQUENTIAL
         HIERARCHICAL
@@ -118,6 +124,11 @@ const typeDefs = `#graphql
         deleteMission(id: Int!): DeleteOutput
 
         runMission(id: Int!): RunMissionResult
+
+        getBackstory(
+          role: String!
+          goal: String!  
+        ): BackstoryResponse!
     }
 `;
 

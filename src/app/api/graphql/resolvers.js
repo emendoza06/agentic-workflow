@@ -1,6 +1,6 @@
 import { Process } from "@/data/consts";
 import prisma from "@/utils/prisma";
-import { runMission } from "./crew_ai";
+import { runMission, getBackstory } from "./crew_ai";
 
 const resolvers = {
   Query: {
@@ -116,6 +116,10 @@ const resolvers = {
     },
     runMission: async (parent, body, context, info) => {
       const result = await runMission(body.id);
+      return result;
+    },
+    getBackstory: async(parent, {role, goal}, context, info) =>{
+      const result = await getBackstory(role, goal);
       return result;
     },
   },

@@ -479,6 +479,10 @@ svg.iconify.iconify--icon-park-twotone {
   margin-left: 0.4rem;
 }
 
+.recommend-btn-disabled{
+  background-color: #6f6f6f;
+}
+
 .backstory-icon{
   margin-top: 0.2rem !important;
 }

@@ -34,3 +34,18 @@ export function runMission(id) {
     })
     .catch((err) => console.log(err));
 }
+
+export function getBackstory(role, goal){
+  const crewaiPath = process.env.CREW_AI_PY_FILE;
+  return py
+    .import(crewaiPath)
+    .then(async function (pymodule) {
+      const {backstory, error, message} = await py.call(
+        pymodule,
+        "generate_backstory",
+        role,
+        goal
+      );
+      return {backstory, error, message};  
+    });
+}

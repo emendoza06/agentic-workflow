@@ -85,3 +85,47 @@ def run_mission(mission):
     except Exception as e:
         print(e)
         return {"error": True, "message": str(e)}
+
+
+def generate_backstory(role, goal):
+    try:
+        llm = ChatOpenAI(
+            model="gpt-3.5-turbo",
+            #verbose=True,
+            temperature=1.0,
+            openai_api_key=os.getenv("OPENAI_API_KEY"),
+        )
+         
+        #prompt template to send to llm role and goal and get backstory
+        prompt_query = """
+            Given 'role' and 'goal', delimited by triple backticks below, generate a backstory for an agent. 
+            A backstory provides depth to the agent's persona, enriching its motivations and engagements 
+            within the crew. Backstory is similar to system message used by an llm. For example, 
+            Role: Senior Researcher
+            Goal: Uncover groundbreaking technologies in Generative AI.
+            Backstory: Driven by curiosity, you're at the forefront of innovation, eager to explore 
+            and share knowledge that could change the world.
+
+            Only output the backstory in the form of one sentence. Do not include any labels, comments, 
+            introductory words, or newline. Do not respond in any other way.
+
+            ```
+            Role: {role}
+            Goal: {goal}
+            ```
+            """
+        
+        prompt_query = prompt_query.replace("{role}", role)
+        prompt_query = prompt_query.replace("{goal}", goal)
+         
+        print(prompt_query)
+
+        messages = [
+            ("system", "You are a helpful assistant."),
+            ("human", prompt_query),
+        ]
+        backstory = llm.invoke(messages).content
+        return {"backstory": backstory, "error": None, "message": "Success"}
+    except Exception as e:
+        print(e)
+        return {"error": True, "message": str(e)}

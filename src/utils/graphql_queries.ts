@@ -280,3 +280,13 @@ export const RUN_MISSION = gql`
     }
   }
 `;
+
+export const GET_BACKSTORY = gql`
+  mutation GetBackstory($role: String!, $goal: String!){
+    getBackstory(role: $role, goal: $goal){
+      backstory
+      error
+      message
+    }
+  }
+`;

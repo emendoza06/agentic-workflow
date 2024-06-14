@@ -15,7 +15,7 @@ import {
 } from "tw-elements-react";
 import { Button, Input, Switch, Textarea } from "@material-tailwind/react";
 import { useMutation } from "@apollo/client";
-import { CREATE_AGENT } from "@/utils/graphql_queries";
+import { GET_BACKSTORY, CREATE_AGENT } from "@/utils/graphql_queries";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import "@/styles/globals.css";
@@ -41,8 +41,39 @@ function NewAgentModal(props: {
     isPreMade: false
   });
 
+  const resetTempAgent = () =>{
+    setTempAgent({
+      role: "",
+      goal: "",
+      backstory: "",
+      tools: [],
+      allowDelegation: false,
+      verbose: false,
+      isPreMade: false,
+    });
+  }
+
   const [createAgent] = useMutation(CREATE_AGENT);
   const [createAgentLoading, setCreateAgentLoading] = useState(false);
+
+  const [getBackstory, {loading, error, data}] = useMutation(GET_BACKSTORY);
+
+  const handleBackstoryRecommend = async () => {
+    if (tempAgent?.role && tempAgent?.goal) {
+      //Call getBackstory mutation
+      const result = await getBackstory({variables: {role: tempAgent.role, goal: tempAgent.goal}});
+      const {backstory, error} = result.data.getBackstory; //using result from getBackstory call
+      if(!error){
+        setTempAgent((prevState) => ({
+          ...prevState, //Ensures the previous state of fields before are carried over so we dont' overwrite them
+          backstory: backstory,
+        }));
+      } 
+    else{
+      console.error(error);
+      }
+    }
+  }
 
   const handleCreateAgent = async (agentData: Agent) => {
     setCreateAgentLoading(true);
@@ -54,6 +85,7 @@ function NewAgentModal(props: {
       setCreateAgentLoading(false);
     });
   };
+
 
   const ReactSwal = withReactContent(Swal);
 
@@ -70,7 +102,9 @@ function NewAgentModal(props: {
               </h1>
               <Button
                 className="create-new-modal-exit"
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  resetTempAgent();
+                  setShowModal(false)}}
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
                 onPointerLeaveCapture={undefined}
@@ -131,15 +165,16 @@ function NewAgentModal(props: {
                       {/* if role and goal are filled, then recommend button appears */}
                       {tempAgent.role && tempAgent.goal && (
                         <button
-                          className="recommend-button"
+                          className={`recommend-button button-shadowing ${loading ? "recommend-btn-disabled" : ""}`}
                           style={{ zIndex: 10 }}
                           onClick={() => {
-                  
+                            handleBackstoryRecommend()
                           }}
+                          disabled={loading} //Disable while laoding is true
                           >
                           <div className="justify-center flex flex-row">
                             <Icon className="backstory-icon" icon="ph:sparkle-fill" style={{color: '#46fbc5'}} width="15" height="15"/>
-                            <p>Recommend</p>
+                            <p>{loading ? "Loading..." : "Recommend"}</p>
                           </div>
                         </button>
                       )}
@@ -150,7 +185,7 @@ function NewAgentModal(props: {
                       color="teal"
                       className="text-black"
                       resize={true}
-                      value={tempAgent?.backstory || ""}
+                      value={loading? "Loading..." : tempAgent?.backstory || ""}
                       onChange={(event) => {
                         setTempAgent((prevState) => ({
                           ...prevState!,
@@ -160,6 +195,8 @@ function NewAgentModal(props: {
                       onPointerEnterCapture={undefined}
                       onPointerLeaveCapture={undefined}
                     />
+                    {loading && <p>Loading...</p>}
+                    {error && <p>Error:...{error.message}</p>}
                   </div>
 
                   {/* Tools input */}
@@ -170,7 +207,7 @@ function NewAgentModal(props: {
                       {/* if role and goal are filled, then recommend button appears */}
                       {tempAgent.role && tempAgent.goal && (
                         <button
-                        className="recommend-button"
+                        className="recommend-button button-shadowing"
                         style={{ zIndex: 10 }}
                         onClick={() => {
                 
@@ -288,6 +325,7 @@ function NewAgentModal(props: {
                           icon: "success",
                         });
                         onAddNewAdent();
+                        resetTempAgent();
                       })
                       .catch((error) => {
                         ReactSwal.fire({
