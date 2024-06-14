@@ -221,7 +221,7 @@ const AgentsPage = () => {
               {/* Avatar image */}
               <img
                 className="agent-card-img block max-w-16 h-14 w-10 flex-none"
-                src={agent.image ?? "/agents_images/sailor.png"}
+                src={agent.image ?? "/agents_images/default-avatar.jpg"}
                 alt="Agent"
               />
 

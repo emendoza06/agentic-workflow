@@ -205,7 +205,7 @@ export default function AgentModal(props: {
                   {/* If not editing image */}
                   {!isEdit && (
                     <img
-                    src={tempAgent?.image ?? "/agents_images/sailor.png"}
+                    src={tempAgent?.image ?? "/agents_images/default-avatar.jpg"}
                     alt="Agent Image"
                     className="edit-agent-current-image w-12 mx-auto rounded-lg"
                   /> 

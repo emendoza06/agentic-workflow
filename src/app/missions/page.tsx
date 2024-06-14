@@ -71,7 +71,8 @@ const MissionsPage = () => {
       )}
 
       {/* Container that loops through workflow cards and displays them */}
-      <div className="workflow-card-container container flex flex-wrap flex-col md:flex-row justify-start p-2">
+      <div className="workflow-card-container container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2">
+      {/* flex-col md:flex-row */}
          {/* Add new workflow button */}
         <div className="workflow-card-div">
           <IconButton
